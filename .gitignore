@@ -16,3 +16,6 @@ data/*
 
 # Optionally exclude specific files you want to keep in data/
 !data/.keep 
+
+# Generated pdf reports
+reports/
