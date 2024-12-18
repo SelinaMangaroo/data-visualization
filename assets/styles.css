@@ -1,0 +1,125 @@
+/* --------------------------------------------
+Global Styles
+- Applies to the entire document
+-------------------------------------------- */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* --------------------------------------------
+Typography Styles
+- Headings, subheadings, and paragraphs
+-------------------------------------------- */
+h1 {
+    font-size: 24px;
+    text-align: center;
+    color: #333;
+}
+h2 {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 10px;
+}
+p {
+    font-size: 12px;
+    margin: 10px 0;
+}
+
+/* --------------------------------------------
+Table Styles
+- General table styling for summary and columns
+-------------------------------------------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 3px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Specific table classes for targeted styling */
+.summary-table,
+.column-table {
+    margin-bottom: 20px;
+}
+
+.summary-table th,
+.summary-table td,
+.column-table th,
+.column-table td {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 3px;
+}
+
+/* --------------------------------------------
+Header and Sub-header Styles
+- For section titles
+-------------------------------------------- */
+.header {
+    font-size: 16px;
+    text-align: center;
+    color: #333;
+    margin: 20px 0;
+}
+
+.sub-header {
+    font-size: 14px;
+    color: #555;
+    margin: 15px 0;
+}
+
+/* --------------------------------------------
+Cover Page Styles
+- For the report cover page
+-------------------------------------------- */
+.cover-page-container {
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+    height: 800px; /* Fixed height for xhtml2pdf (A4 approximate height) */
+    margin: 0; /* Remove margin */
+    padding: 0; /* Remove padding */
+}
+
+.cover-page {
+    text-align: center;
+}
+.cover-page p{
+    font-size: 20px;
+    color: #000;
+}
+
+.cover-page img {
+    max-width: 200px; /* Limits the width */
+    height: auto; /* Scales height proportionally */
+    margin-bottom: 30px; /* Space below the logo */
+}
+
+/* --------------------------------------------
+Footer Styles
+- Footer for page numbers or additional text
+-------------------------------------------- */
+.footer {
+    text-align: center;
+    font-size: 10px;
+    color: #555;
+    margin-top: 20px;
+}
