@@ -8,13 +8,18 @@ This project focuses on cleaning, processing, and visualizing datasets using Pyt
 
 ```
 data-visualization/
-├── data/                         # datasets to be processed
+├── assets/                       # Static assets (CSS, images, logos)
+│   ├── styles.css                # Stylesheet for PDF reports
+│   ├── CA_Logo.png               # Logo for the report cover page
+├── data/                         # Datasets to be processed
 ├── notebooks/
 │   ├── clean_files.ipynb         # Notebook for cleaning data
 │   ├── visualize_files.ipynb     # Notebook for visualizing data
 ├── scripts/
 │   ├── __init__.py               # Marks the directory as a module
 │   ├── convert_to_csv.py         # Script for converting XML and Excel files to CSV
+│   ├── data_processing.py        # Main script for processing and generating reports
+├── reports/                      # Generated reports (PDF)
 ├── venv/                         # Virtual environment (not tracked in version control)
 ├── .gitignore                    # Specifies files/directories to exclude from Git
 ├── README.md                     # Project documentation
@@ -39,7 +44,7 @@ data-visualization/
 - **Purpose**: Provides insights into datasets through summary statistics and visualizations.
 - **Key Tasks**:
   - Visualizes unique value distributions across columns.
-  - Generates interactive and static bar charts using `plotly` and `matplotlib`.
+  - Generates interactive and static bar charts using `plotly`.
   - Filters datasets for specific columns of interest.
 
 ### 3. **File Conversion**
@@ -49,6 +54,15 @@ data-visualization/
   - Cleans malformed characters in XML files (`zap_gremlins`).
   - Converts XML files to CSV (`xml_to_csv`).
   - Converts Excel files (`.xls` and `.xlsx`) to CSV (`convert_excel_to_csv`).
+
+### 4. **PDF Report Generation**
+- **Script**: `data_processing.py`
+- **Purpose**: Processes datasets, generates analysis, and compiles results into a PDF report.
+- **Key Features**:
+  - Cover Page: Displays the file/directory name, report generation date, and file size.
+  - Summary Section: Includes statistics like the number of rows, current columns, dropped columns, and a column presence table.
+  - Numerous data insights.
+  - Processed Files: Saves datasets with dropped columns in the data/{input_name}_dropped folder.
 
 ---
 
@@ -101,11 +115,23 @@ data-visualization/
   convert_excel_to_csv("file path")
   ```
 
+- Generate the report
+  ```python
+  from scripts.data_processing import process_and_generate_report
+
+  # For a single file
+  process_and_generate_report("data/example.csv")
+
+  # For a directory containing multiple CSV files
+  process_and_generate_report("data/")
+  ```
+
 ---
 
 ## Dependencies
 
 - `pandas`: For data manipulation and analysis.
+- `xhtml2pdf`: Generates PDFs from HTML content.
 - `matplotlib`: For creating static visualizations.
 - `plotly`: For creating interactive visualizations.
 - `tabulate`: For formatting data summaries as tables.
@@ -119,9 +145,15 @@ pip install -r requirements.txt
 
 ---
 
-## File Path Conventions
+## Output Structure
 - All datasets should be stored in the `data` directory.
 - Ensure file paths are updated accordingly in notebooks and scripts if custom locations are used.
+- Processed PDF reports will be saved in the reports directory.
+- Processed datasets with dropped columns are saved in:
+  ```
+  data/{input_name}_dropped/
+  ```
+- Assets such as logos and stylesheets are located in the assets directory.
 
 ---
 
