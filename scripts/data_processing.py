@@ -7,167 +7,144 @@ import datetime
 from io import BytesIO
 import base64
 
-# def process_and_generate_report(csv_file_path, output_folder="reports"):
-#     """
-#     Cleans the data, performs analysis, and generates a PDF report.
+def find_directory(dir_name):
+    """
+    Locates the specified directory (e.g., 'data') by traversing upwards from the current working directory.
+    """
+    root_dir = os.getcwd()
+    while root_dir != os.path.dirname(root_dir):  # Traverse up until the root directory
+        if dir_name in os.listdir(root_dir):
+            return os.path.join(root_dir, dir_name)
+        root_dir = os.path.dirname(root_dir)
+    raise ValueError(f"Could not find '{dir_name}' directory in the path hierarchy.")
 
-#     Parameters:
-#         csv_file_path (str): Path to the input CSV file.
-#         output_folder (str): Directory where the PDF report will be saved.
+def generate_bar_charts(chart_df, x_axis, y_axis, base_title="", chunk_size=40, xaxis_label="X-Axis", yaxis_label="Y-Axis"):
+    """
+    Generates bar charts in chunks and returns the HTML content for embedding in the report.
 
-#     Returns:
-#         None
-#     """
-#     # Load the dataset
-#     df = pd.read_csv(csv_file_path, index_col=0, low_memory=False)
-#     print("Original DataFrame Info:")
-#     print(df.info())
+    Parameters:
+        chart_df (DataFrame): DataFrame containing the data to chart.
+        x_axis (str): The column name to use for the x-axis.
+        y_axis (str): The column name to use for the y-axis.
+        base_title (str): Base title for the charts.
+        chunk_size (int): Maximum number of bars per chart.
+        xaxis_label (str): Label for the x-axis.
+        yaxis_label (str): Label for the y-axis.
 
-    # # Data Cleaning and Analysis
-    # original_columns = df.columns.tolist()
-    # original_row_count = df.shape[0]
-    # empty_row_count = df.isnull().all(axis=1).sum()
-    # df = df.dropna(axis=1, how='all')
-    # current_columns = df.columns.tolist()
-    # current_row_count = df.shape[0]
-    # dropped_columns = [col for col in original_columns if col not in current_columns]
-    # number_of_dropped_columns = len(dropped_columns)
-    # number_of_current_columns = len(current_columns)
-    # column_value_counts = df.count()
-    # # unique_values = {col: df[col].nunique() for col in current_columns}
-    # # Ensure unique values are always arrays
-    # unique_values = {col: np.atleast_1d(df[col].unique()) for col in current_columns}
-    # columns_with_zeros = {
-    #     col: (df[col] == 0).sum() > 0 for col in current_columns if not pd.api.types.is_numeric_dtype(df[col])
-    # }
+    Returns:
+        str: HTML content with embedded bar charts.
+    """
+    charts_html = ""
+    for i in range(0, len(chart_df), chunk_size):
+        chunk = chart_df.iloc[i:i + chunk_size]
+        part_number = (i // chunk_size) + 1
 
-    # # Display summary in the notebook
-    # # print("\nDropped Columns:", dropped_columns)
-    # # print(f"Number of Dropped Columns: {number_of_dropped_columns}")
-    # # print("\nCurrent Columns:", current_columns)
-    # # print(f"Number of Current Columns: {number_of_current_columns}")
-    # # print(f"\nNumber of Rows: {current_row_count}")
-    # # print(f"Number of Empty Rows: {empty_row_count}")
-    # # print("\nNumber of Values in Each Column:")
-    # # print(column_value_counts)
-    # # print("\nUnique Values for Each Column:")
-    # # for col, unique_count in unique_values.items():
-    # #     print(f"{col}: {unique_count}")
-    # # print("\nColumns with Zeros (Non-Numerical):")
-    # # for col, has_zeros in columns_with_zeros.items():
-    # #     if has_zeros:
-    # #         print(f"{col}: Contains zeros")
+        # Generate the bar chart
+        fig = px.bar(
+            chunk,
+            x=x_axis,
+            y=y_axis,
+            text=y_axis,
+            title=f"{base_title} (Part {part_number})"
+        )
+        fig.update_traces(textposition="outside")
+        fig.update_layout(
+            xaxis=dict(tickangle=-45),
+            height=600,
+            margin=dict(l=50, r=50, t=50, b=150),
+            xaxis_title=xaxis_label,
+            yaxis_title=yaxis_label,
+        )
+
+        # Save the chart image to memory as Base64
+        buffer = BytesIO()
+        fig.write_image(buffer, format="png")
+        buffer.seek(0)
+        image_base64 = base64.b64encode(buffer.read()).decode("utf-8")
+        buffer.close()
+
+        # Append the chart to the charts_html string
+        charts_html += f"""
+            <h2 class="sub-header"></h2>
+            <img src="data:image/png;base64,{image_base64}" alt="Bar Chart Part {part_number}">
+        """
+    return charts_html
+
+
+def generate_unique_values_report(input_csv, column_names):
+    """
+    Generates a PDF containing unique values for specified columns in a CSV file.
+
+    Parameters:
+        input_csv (str): Path to the input CSV file.
+        column_names (list): List of column names to extract unique values for.
+
+    Returns:
+        None
+    """
     
-#     # Create a Summary DataFrame for Unique Values
-#     summary_df = pd.DataFrame({
-#         'Column': unique_values.keys(),
-#         'Unique Values': [
-#             ', '.join(map(str, values[:100])) + ('...' if len(values) > 100 else '') 
-#             for values in unique_values.values()
-#         ],
-#         'Unique Count': [len(values) for values in unique_values.values()]
-#     })
-
-#     # Sort the summary DataFrame by Unique Count
-#     summary_df = summary_df.sort_values(by='Unique Count', ascending=False)
-
-#     # Display summary in the notebook
-#     # print("\nSummary DataFrame:")
-#     # print(summary_df)
-
-#     # Interactive Bar Chart for Unique Count
-#     fig = px.bar(summary_df, x='Column', y='Unique Count', text='Unique Count', title='Unique Count of Values per Column')
-#     fig.update_traces(textposition='outside')
-#     fig.show()
+    # Locate the `data` directory dynamically
+    data_directory = find_directory("data")
     
-#     # Save the chart as an image
-#     os.makedirs(output_folder, exist_ok=True)
-#     base_file_name = os.path.splitext(os.path.basename(csv_file_path))[0]
-#     chart_image_path = os.path.join(output_folder, f"{base_file_name}_unique_count_chart.png")
-#     fig.write_image(chart_image_path, format='png')
-#     print(f"Bar chart image saved: {chart_image_path}")
-    
+    reports_folder = os.path.join(os.path.dirname(data_directory), "reports")
+    if not os.path.exists(reports_folder):
+        os.makedirs(reports_folder)
 
-#     # Generate PDF Report
-#     class PDF(FPDF):
-#         def header(self):
-#             self.set_font('Arial', 'B', 12)
-#             self.cell(0, 10, 'Data Analysis Report', align='C', ln=1)
+    # Generate the output PDF path
+    base_name = os.path.splitext(os.path.basename(input_csv))[0]
+    output_pdf = os.path.join(reports_folder, f"{base_name}_unique_vals.pdf")
 
-#         def footer(self):
-#             self.set_y(-15)
-#             self.set_font('Arial', 'I', 8)
-#             self.cell(0, 10, f'Page {self.page_no()}', align='C')
+    # Load the CSV file
+    try:
+        df = pd.read_csv(input_csv, low_memory=False)
+    except Exception as e:
+        raise ValueError(f"Error reading the CSV file: {e}")
 
-#     pdf = PDF()
-#     pdf.add_page()
-#     pdf.set_font('Arial', size=10)
-    
-#     # Add Analysis Details with Spacing and Bold Titles
-#     def add_section_title(pdf, title):
-#         pdf.set_font('Arial', 'B', 10)
-#         pdf.cell(0, 10, title, ln=1)
-#         pdf.ln(5)  # Add space after the title
-#         pdf.set_font('Arial', size=10)
+    # Validate column names
+    missing_columns = [col for col in column_names if col not in df.columns]
+    if missing_columns:
+        raise ValueError(f"The following columns are missing in the CSV file: {', '.join(missing_columns)}")
 
-#     add_section_title(pdf, "Dropped Columns:")
-#     pdf.multi_cell(0, 10, ", ".join(dropped_columns) if dropped_columns else "None")
-#     pdf.cell(0, 10, f"Number of Dropped Columns: {number_of_dropped_columns}", ln=1)
-#     pdf.ln(5)
+    # Extract unique values
+    unique_values_html = ""
+    for column in column_names:
+        unique_values = df[column].dropna().unique()
+        unique_values.sort()
 
-#     add_section_title(pdf, "Current Columns:")
-#     pdf.multi_cell(0, 10, ", ".join(current_columns))
-#     pdf.cell(0, 10, f"Number of Current Columns: {number_of_current_columns}", ln=1)
-#     pdf.ln(5)
+        # Format unique values into rows of three columns
+        rows = ""
+        for i in range(0, len(unique_values), 3):
+            row = unique_values[i:i+3]
+            rows += "<tr>" + "".join(f"<td>{val}</td>" for val in row) + "</tr>"
 
-#     add_section_title(pdf, "Number of Rows:")
-#     pdf.cell(0, 10, f"{current_row_count}", ln=1)
-#     pdf.ln(5)
+        # Add the table for this column to the HTML
+        unique_values_html += f"""
+        <h2 class="sub-header">Unique Values in Column: {column}</h2>
+        <table class="unique-values-table">
+            <tbody>
+                {rows}
+            </tbody>
+        </table>
+        """
 
-#     add_section_title(pdf, "Number of Empty Rows:")
-#     pdf.cell(0, 10, f"{empty_row_count}", ln=1)
-#     pdf.ln(5)
+    # Generate the HTML report
+    html_report = f"""
+    <html>
+        <head>
+            <link rel="stylesheet" href="../assets/styles.css">
+        </head>
+        <body>
+            <h1 class="header">Unique Values Report</h1>
+            <h2 class="sub-header">File: {os.path.basename(input_csv)}</h2>
+            {unique_values_html}
+        </body>
+    </html>
+    """
 
-#     add_section_title(pdf, "Number of Values in Each Column:")
-#     for col, count in column_value_counts.items():
-#         pdf.cell(0, 10, f"{col}: {count}", ln=1)
-#     pdf.ln(5)
-
-#     add_section_title(pdf, "Unique Values for Each Column:")
-#     for col, values in unique_values.items():
-#         formatted_values = ', '.join(map(str, values[:100])) + ('...' if len(values) > 100 else '')
-#         pdf.set_font('Arial', 'U', 10)  # Set underline font for column names
-#         pdf.cell(0, 10, f"{col}:", ln=1)
-#         pdf.set_font('Arial', size=7)
-#         pdf.multi_cell(0, 10, formatted_values)
-#     pdf.ln(5)
-
-#     # add_section_title(pdf, "Columns with Zeros (Non-Numerical):")
-#     # for col, has_zeros in columns_with_zeros.items():
-#     #     pdf.cell(0, 10, f"{col}: {'Contains zeros' if has_zeros else 'No zeros'}", ln=1)
-#     # pdf.ln(5)
-    
-#     columns_with_zeros_present = [col for col, has_zeros in columns_with_zeros.items() if has_zeros]
-#     if columns_with_zeros_present:
-#         add_section_title(pdf, "Columns with Zeros (Non-Numerical):")
-#         for col in columns_with_zeros_present:
-#             pdf.cell(0, 10, f"{col}: Contains zeros", ln=1)
-#         pdf.ln(5)
-    
-#     # Add the Bar Chart Image to the PDF
-#     pdf.add_page()
-#     pdf.cell(0, 10, "Unique Count of Values per Column", ln=1, align='C')
-#     pdf.image(chart_image_path, x=10, y=20, w=190)  # Adjust image size and position as needed
-
-#     # Ensure the reports folder exists
-#     os.makedirs(output_folder, exist_ok=True)
-
-#     # Extract base file name and save the PDF
-#     base_file_name = os.path.splitext(os.path.basename(csv_file_path))[0]
-#     pdf_file_path = os.path.join(output_folder, f"{base_file_name}_report.pdf")
-#     pdf.output(pdf_file_path)
-
-#     print(f"PDF report generated: {pdf_file_path}")
+    # Create the PDF
+    with open(output_pdf, "wb") as pdf_file:
+        pisa.CreatePDF(html_report, dest=pdf_file)
+    print(f"PDF report generated: {output_pdf}")
 
 def generate_cover_page(input_path):
     """
@@ -326,15 +303,7 @@ def process_and_generate_report(input_path):
     """
     
     # Locate the `data` directory dynamically
-    root_dir = os.getcwd()
-    data_directory = None
-    while root_dir != os.path.dirname(root_dir):  # Stop when reaching the root directory
-        if "data" in os.listdir(root_dir):
-            data_directory = os.path.join(root_dir, "data")
-            break
-        root_dir = os.path.dirname(root_dir)
-    if not data_directory:
-        raise ValueError("Could not find 'data' directory in the path hierarchy.")
+    data_directory = find_directory("data")
 
     # Define `reports` and `_dropped` directories
     reports_folder = os.path.join(os.path.dirname(data_directory), "reports")
@@ -463,43 +432,57 @@ def process_and_generate_report(input_path):
                 <p>{', '.join(columns_with_zeros_list)}</p>
             """
 
-        # Generate bar charts in chunks if needed
-        chunk_size = 40  # Maximum number of bars per chart
-        chart_df = pd.DataFrame({
-            'Column': unique_values.keys(),
-            'Unique Count': [len(values) for values in unique_values.values()]
-        })
-        chart_df = chart_df.sort_values(by='Unique Count', ascending=False)
+        # # Generate bar charts in chunks if needed
+        # chunk_size = 40  # Maximum number of bars per chart
+        # chart_df = pd.DataFrame({
+        #     'Column': unique_values.keys(),
+        #     'Unique Count': [len(values) for values in unique_values.values()]
+        # })
+        # chart_df = chart_df.sort_values(by='Unique Count', ascending=False)
 
-        # Generate charts and embed directly in HTML
-        charts_html = ""  # Accumulate all charts' HTML here
-        for i in range(0, len(chart_df), chunk_size):
-            chunk = chart_df.iloc[i:i + chunk_size]
-            part_number = (i // chunk_size) + 1
+        # # Generate charts and embed directly in HTML
+        # charts_html = ""  # Accumulate all charts' HTML here
+        # for i in range(0, len(chart_df), chunk_size):
+        #     chunk = chart_df.iloc[i:i + chunk_size]
+        #     part_number = (i // chunk_size) + 1
 
-            # Generate the bar chart
-            fig = px.bar(chunk, x='Column', y='Unique Count', text='Unique Count', title=f'Unique Count of Values for {base_file_name} (Part {part_number})')
-            fig.update_traces(textposition='outside')
-            fig.update_layout(
-                xaxis=dict(tickangle=-45),
-                height=600,
-                margin=dict(l=50, r=50, t=50, b=150),
-                xaxis_title='Column Names',
-                yaxis_title='Unique Count',
-            )
+        #     # Generate the bar chart
+        #     fig = px.bar(chunk, x='Column', y='Unique Count', text='Unique Count', title=f'Unique Count of Values for {base_file_name} (Part {part_number})')
+        #     fig.update_traces(textposition='outside')
+        #     fig.update_layout(
+        #         xaxis=dict(tickangle=-45),
+        #         height=600,
+        #         margin=dict(l=50, r=50, t=50, b=150),
+        #         xaxis_title='Column Names',
+        #         yaxis_title='Unique Count',
+        #     )
 
-            # Save the chart image to memory as Base64
-            buffer = BytesIO()
-            fig.write_image(buffer, format="png")
-            buffer.seek(0)
-            image_base64 = base64.b64encode(buffer.read()).decode("utf-8")
-            buffer.close()
-            # Append the chart to the charts_html string
+        #     # Save the chart image to memory as Base64
+        #     buffer = BytesIO()
+        #     fig.write_image(buffer, format="png")
+        #     buffer.seek(0)
+        #     image_base64 = base64.b64encode(buffer.read()).decode("utf-8")
+        #     buffer.close()
+        #     # Append the chart to the charts_html string
             
-            charts_html += f"""
-                <h2 class="sub-header"></h2>
-                <img src="data:image/png;base64,{image_base64}" alt="Bar Chart Part {part_number}">
-            """
+        #     charts_html += f"""
+        #         <h2 class="sub-header"></h2>
+        #         <img src="data:image/png;base64,{image_base64}" alt="Bar Chart Part {part_number}">
+        #     """
+        
+        # Generate bar charts for unique counts
+        chart_df = pd.DataFrame({
+            "Column": unique_values.keys(),
+            "Unique Count": [len(values) for values in unique_values.values()],
+        }).sort_values(by="Unique Count", ascending=False)
+        charts_html = generate_bar_charts(
+            chart_df, 
+            x_axis="Column", 
+            y_axis="Unique Count", 
+            base_title=f"Unique Count of Values for {base_file_name}",
+            xaxis_label="Column Names",
+            yaxis_label="Unique Count"
+        )
         
         # Generate table rows for column value counts
         col_value_table_rows = ""
