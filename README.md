@@ -1,6 +1,6 @@
 # Data Visualization Project
 
-This project focuses on cleaning, processing, and visualizing datasets using Python. The goal is to build a structured workflow for handling raw data, standardizing it, and extracting meaningful insights through visualization. Below is an overview of the project setup, functionality, and usage instructions.
+This project focuses on cleaning, processing, and visualizing datasets using Python. It is structured to provide a modular and extensible workflow for handling raw data, standardizing it, and extracting meaningful insights through visualization. Below is an overview of the project setup, functionality, and usage instructions.
 
 ---
 
@@ -17,8 +17,14 @@ data-visualization/
 │   ├── visualize_files.ipynb     # Notebook for visualizing data
 ├── scripts/
 │   ├── __init__.py               # Marks the directory as a module
+│   ├── modules/                  # Modularized report generation components
+│   │   ├── __init__.py           # Marks the directory as a module
+│   │   ├── barcharts.py          # Bar chart generation module
+│   │   ├── basicDataAnalysis.py  # Basic data analysis module
+│   │   ├── coverpage.py          # Cover page generation module
+│   │   ├── summary.py            # Summary generation module
+│   ├── generate_report.py        # Main script for orchestrating report generation
 │   ├── convert_to_csv.py         # Script for converting XML and Excel files to CSV
-│   ├── data_processing.py        # Main script for processing and generating reports
 ├── reports/                      # Generated reports (PDF)
 ├── venv/                         # Virtual environment (not tracked in version control)
 ├── .gitignore                    # Specifies files/directories to exclude from Git
@@ -55,14 +61,25 @@ data-visualization/
   - Converts XML files to CSV (`xml_to_csv`).
   - Converts Excel files (`.xls` and `.xlsx`) to CSV (`convert_excel_to_csv`).
 
-### 4. **PDF Report Generation**
-- **Script**: `data_processing.py`
+### 4. **Modular PDF Report Generation**
+- **Script**: `generate_report.py`
 - **Purpose**: Processes datasets, generates analysis, and compiles results into a PDF report.
 - **Key Features**:
-  - Cover Page: Displays the file/directory name, report generation date, and file size.
-  - Summary Section: Includes statistics like the number of rows, current columns, dropped columns, and a column presence table.
-  - Numerous data insights.
-  - Processed Files: Saves datasets with dropped columns in the data/{input_name}_dropped folder.
+  - **Dynamic Modular Architecture**: Each report section (cover page, summary, basic data analysis, bar charts) is implemented in its own module in the `modules/` directory.
+  - **Customizable**: Users can specify which report sections to include and configure them via `report_configs` in the main function.
+
+
+  - **Cover Page**: Displays the file/directory name, report generation date, and file size.
+
+  - **Summary Section**: Includes statistics like the number of rows, current columns, dropped columns, and a column presence table.
+
+  - **Basic Data Analysis**:
+    - Analyzes and cleans datasets.
+    - Saves processed datasets with dropped columns in `data/{input_name}_dropped/`.
+    
+  - **Bar Charts**:
+    - Automatically generates bar charts for numeric columns.
+    - No need to specify `x_axis` or `y_axis` explicitly.
 
 ---
 
@@ -103,27 +120,33 @@ data-visualization/
   - `clean_files.ipynb` for data cleaning.
   - `visualize_files.ipynb` for data visualization.
 
-### 2. Using Scripts
-- Convert files using the provided script:
+### 2. Using the Report Generation Script
+- Generate a report:
   ```python
-  from scripts.convert_to_csv import xml_to_csv, convert_excel_to_csv
+  from scripts.generate_report import process_and_generate_report
 
-  # Convert XML to CSV
-  xml_to_csv("file path")
-
-  # Convert Excel files to CSV
-  convert_excel_to_csv("file path")
-  ```
-
-- Generate the report
-  ```python
-  from scripts.data_processing import process_and_generate_report
-
-  # For a single file
-  process_and_generate_report("data/example.csv")
+  # For a single CSV file
+  process_and_generate_report(
+      input_path="data/example.csv",
+      report_configs=[
+          {"report": "coverpage", "options": {"title": "Example Report"}},
+          {"report": "summary", "options": {}},
+          {"report": "barcharts", "options": {"chunk_size": 40}},
+          {"report": "basicDataAnalysis", "options": {}}
+      ],
+      general_options={"page_numbering": True}
+  )
 
   # For a directory containing multiple CSV files
-  process_and_generate_report("data/")
+  process_and_generate_report(
+      input_path="data/",
+      report_configs=[
+          {"report": "coverpage", "options": {"title": "Batch Report"}},
+          {"report": "summary", "options": {}},
+          {"report": "barcharts", "options": {"chunk_size": 40}},
+          {"report": "basicDataAnalysis", "options": {}}
+      ]
+  )
   ```
 
 ---
@@ -147,13 +170,12 @@ pip install -r requirements.txt
 
 ## Output Structure
 - All datasets should be stored in the `data` directory.
-- Ensure file paths are updated accordingly in notebooks and scripts if custom locations are used.
-- Processed PDF reports will be saved in the reports directory.
+- Processed PDF reports will be saved in the `reports` directory.
 - Processed datasets with dropped columns are saved in:
   ```
   data/{input_name}_dropped/
   ```
-- Assets such as logos and stylesheets are located in the assets directory.
+- Assets such as logos and stylesheets are located in the `assets` directory.
 
 ---
 
@@ -162,5 +184,3 @@ pip install -r requirements.txt
 This project is licensed under the MIT License. See `LICENSE` for details.
 
 ---
-
-
