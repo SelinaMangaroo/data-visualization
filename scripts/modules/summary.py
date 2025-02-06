@@ -144,6 +144,7 @@ def generate_report_section(input_path, options=None, **kwargs):
         # Collect columns and compute stats
         total_columns = df.columns.tolist()
         dropped_columns = len(df.columns[df.isnull().all()])
+        populated_columns = len(df.columns) - dropped_columns
         number_of_rows = df.shape[0]
 
         file_columns[base_file_name] = total_columns
@@ -153,6 +154,7 @@ def generate_report_section(input_path, options=None, **kwargs):
             "File": base_file_name,
             "Total Columns": len(total_columns),
             "Dropped Columns": dropped_columns,
+            "Populated Columns": populated_columns,
             "Rows": number_of_rows,
         })
 
@@ -166,6 +168,7 @@ def generate_report_section(input_path, options=None, **kwargs):
                 <th>File</th>
                 <th>Total Columns</th>
                 <th>Dropped Columns</th>
+                <th>Populated Columns</th>
                 <th>Number of Rows</th>
             </tr>
         </thead>
@@ -178,6 +181,7 @@ def generate_report_section(input_path, options=None, **kwargs):
                 <td>{stat['File']}</td>
                 <td>{stat['Total Columns']}</td>
                 <td>{stat['Dropped Columns']}</td>
+                <td>{stat['Populated Columns']}</td>
                 <td>{stat['Rows']}</td>
             </tr>
         """
