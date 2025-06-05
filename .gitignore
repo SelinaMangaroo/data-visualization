@@ -13,9 +13,13 @@ __pycache__/
 
 # Ignore all contents of the data directory
 data/*
+data_csv/
 
 # Optionally exclude specific files you want to keep in data/
 !data/.keep 
 
 # Generated pdf reports
 reports/
+
+.env
+report_config.json
