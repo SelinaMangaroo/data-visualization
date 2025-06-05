@@ -1,0 +1,24 @@
+[
+    {
+        "report": "coverpage",
+        "options": {
+            "title": "${REPORT_TITLE}"
+        }
+    },
+    {
+        "report": "summary",
+        "options": {}
+    },
+    {
+        "report": "barcharts",
+        "options": {
+            "chunk_size": "${CHUNK_SIZE}",
+            "xaxis_label": "${XAXIS_LABEL}",
+            "yaxis_label": "${YAXIS_LABEL}"
+        }
+    },
+    {
+        "report": "basicDataAnalysis",
+        "options": {}
+    }
+]

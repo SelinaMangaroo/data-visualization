@@ -1,0 +1,342 @@
+ #,INVENTORY #,ARTWORK TITLE,ARTIST LAST NAME,ARTIST FIRST NAME,DATE ACQUIRED,ARTWORK DESCRIPTION,Insurance Value,KEEP / REMOVE
+1.0,2015.COB.1,The Ambition of the Stick,Cobb,James ,2015.0,Green and purple abstract painting,1800.0,Keep 
+2.0,2015.COB.2,Ingratitude in Advance,Cobb,James ,2015.0,White abstract painting,1800.0,Keep 
+3.0,2015.COB.3,Nourishment,Cobb,James ,2015.0,Black abstract painting,1800.0,Keep 
+4.0,2015.COB.4,Growth,Cobb,James ,2015.0,Grey abstract painting,1800.0,Keep 
+5.0,2015.ESP.1.1,La Reina,Esparza,Jenelle ,2015.0,Textile,1250.13,Keep 
+6.0,2015.VEG.1,Wheat,Vega Treviño,Louise,2015.0,Painting,2200.0,Keep 
+7.0,2016.COB.1,Bernese Oberlander,Cobb,James ,2016.0,Works on Paper,1800.0,Keep 
+8.0,2016.COB.2,Ghord Farm,Cobb,James ,2016.0,Works on Paper,1800.0,Keep 
+9.0,2016.COB.3,The Plainsman,Cobb,James,2016.0,Works on Paper,1800.0,Keep 
+10.0,2016.COB.4,Thought Process of the Stone,Cobb,James,2016.0,Works on Paper,1800.0,Keep 
+11.0,2018.DEL.1,Black Lives Matter ,De La Cruz,Joseph,2016.0,Drawing,2000.0,Keep 
+12.0,2018.DEL.3,Silence Equals Death,De La Cruz,Joseph,2016.0,Drawing,2000.0,Keep 
+13.0,2018.DEL.4,Su Voto es Su Voz ,De La Cruz,Joseph,2016.0,Drawing,2000.0,Keep 
+14.0,2018.MAR.1,San Antonio,Martorell,Antonio,2016.0,Works on Paper,2500.0,Keep 
+15.0,2017.VAL.1,Bauwens Family in a Beet Field,Valdivia,Alison,2017.0,Works on Paper,1100.0,Keep 
+16.0,2018.AND.1,Libertad,Andrade,Fernando,2017.0,Drawing,2500.0,Keep 
+17.0,2018.AND.2,Hernandez v. Texas,Andrade,Fernando,2017.0,Drawing,3500.0,Keep 
+18.0,2018.CHA.1,I To My Beloved and My Beloved To Me,Chavez,Lisette ,2017.0,Drawing,2450.0,Keep 
+19.0,2018.DEA.1,Strata Dip,Dean,(blank),2017.0,Works on Paper,1000.0,Keep 
+20.0,2018.DEA.2.1,I Venti di Giona II (III/I/X) ,Dean,(blank),2017.0,Works on Paper,1200.0,Keep 
+21.0,2018.DEA.2.2,I Venti di Giona II (VI/I/X),Dean,(blank),2017.0,Works on Paper,1200.0,Keep 
+22.0,2018.DEA.3,Tramonto,Dean,(blank),2017.0,Works on Paper,1500.0,Keep 
+23.0,2018.DEL.6,Post Office 1890-1937,De La Cruz,Joseph,2017.0,Drawing,3000.0,Keep 
+24.0,2018.ESP.3,Mezcla ,Esparza,Jenelle ,2017.0,Textile,850.0,Keep 
+25.0,2018.FEL.1,Artemesia Bowden,Felix,Barbara ,2017.0,Works on Paper,1300.0,Keep 
+26.0,2018.FER.1,A Chinese Grocery,Fernandez ,Ana,2017.0,Painting,2500.0,Keep 
+27.0,2018.FER.2,El Teatro Nacional ,Fernandez ,Ana,2017.0,Painting,2500.0,Keep 
+28.0,2018.FER.3,F.A. Chapa Drugstore,Fernandez ,Ana,2017.0,Painting,2500.0,Keep 
+29.0,2018.FER.4,G. Giovanazzi Store,Fernandez ,Ana,2017.0,Painting,2500.0,Keep 
+30.0,2018.FER.5,La Gloria #3,Fernandez ,Ana,2017.0,Painting,2500.0,Keep 
+31.0,2018.FER.6,Miraflores & La Quinta Urrutia,Fernandez ,Ana,2017.0,Painting,2500.0,Keep 
+32.0,2018.FER.7,Scotty's Ice House,Fernandez ,Ana,2017.0,Painting,2500.0,Keep 
+33.0,2018.FER.8,The Casa Jose Antonio de la Garza,Fernandez ,Ana,2017.0,Painting,2500.0,Keep 
+34.0,2018.FER.9,Flight,Fernandez,Ana,2017.0,Framed oil on canvas,8500.0,Keep 
+35.0,2018.GAR.1,Duex-Two,Garza ,(blank),2017.0,Mixed Media,500.0,Keep 
+36.0,2018.GAR.10,Biblioteca: 2-3 ,Garza ,(blank),2017.0,Mixed Media,600.0,Keep 
+37.0,2018.GAR.11,File #7: 1 -2 ,Garza ,(blank),2017.0,Mixed Media,600.0,Keep 
+38.0,2018.GAR.12,Not Special Delivery: 3-4,Garza ,(blank),2017.0,Mixed Media,600.0,Keep 
+39.0,2018.GAR.2,Memo 1251,Garza ,(blank),2017.0,Mixed Media,500.0,Keep 
+40.0,2018.GAR.3,Sequence Series: Amount Due 26,Garza ,(blank),2017.0,Mixed Media,500.0,Keep 
+41.0,2018.GAR.4,Sequence Series: Kristalle 4,Garza ,(blank),2017.0,Mixed Media,500.0,Keep 
+42.0,2018.GAR.5,TITLE TBD (3 TUV),Garza ,(blank),2017.0,Mixed Media,500.0,Keep 
+43.0,2018.GAR.6,TITLE TBD (76543),Garza ,(blank),2017.0,Mixed Media,500.0,Keep 
+44.0,2018.GAR.7,Turn Left at 348,Garza ,(blank),2017.0,Mixed Media,500.0,Keep 
+45.0,2018.GAR.8,Universal Life 725,Garza ,(blank),2017.0,Mixed Media,500.0,Keep 
+46.0,2018.GAR.9,Zer029 Notary 4,Garza ,(blank),2017.0,Mixed Media,500.0,Keep 
+47.0,2018.GIL.1,Nique,Gilmore,Xavier,2017.0,Drawing,1500.0,Keep 
+48.0,2018.GONZ.2,Hail Came and the Roofers Came to Fix It,Gonzalez,Raul,2017.0,Works on Paper,2600.0,Keep 
+49.0,2018.GONZ.3,WhatMachine ,Gonzalez,Raul,2017.0,Works on Paper,660.0,Keep 
+50.0,2018.GUER.1,Hide and Seek,Guerrero,Patricia ,2017.0,Painting,600.0,Keep 
+51.0,2018.GUER.2,Las Cebollas,Guerrero,Patricia ,2017.0,Painting,600.0,Keep 
+52.0,2018.GUER.3,Red Rover,Guerrero,Patricia ,2017.0,Painting,600.0,Keep 
+53.0,2018.GUEV.1,Misión San José,Guevara,Jacinto,2017.0,Painting,1000.0,Keep 
+54.0,2018.HAR.1,(Translated From a Payaya Children’s Activity Book for Adults),Harjo,Joe,2017.0,Works on Paper,1200.0,Keep 
+55.0,2018.HOG.1,Director (Chair),Hogensen,Mark,2017.0,Drawing,475.0,Keep 
+56.0,2018.HOG.2,Easy (Chair),Hogensen,Mark,2017.0,Drawing,475.0,Keep 
+57.0,2018.HOG.3,Office (Chair),Hogensen,Mark,2017.0,Drawing,475.0,Keep 
+58.0,2018.HOG.4,Wing (Chair),Hogensen,Mark,2017.0,Drawing,475.0,Keep 
+59.0,2018.HOG.5,Landscape Series #12,Hogensen,Mark,2017.0,Drawing,1500.0,Keep 
+60.0,2018.HOG.6,Landscape Series #13,Hogensen,Mark,2017.0,Drawing,1500.0,Keep 
+61.0,2018.HOG.7,Road Trip #1,Hogensen,Mark,2017.0,Painting,2800.0,Keep 
+62.0,2018.LOP.1,Pasando el Tiempo,Lopez,(blank),2017.0,Painting,3500.0,Keep 
+63.0,2018.MARTI.1,Bato Verde ,Martinez,Cesar,2017.0,Oil on canvas,8000.0,Keep 
+64.0,2018.MOR.10,No Me Falles Vaca,Mora,(blank),2017.0,Works on Paper,1500.0,Keep 
+65.0,2018.PER.1,Manuela,Perez,Kristy ,2017.0,Drawing,2700.0,Keep 
+66.0,2018.ROD.1,Dos Corazones,Rodriguez,Elizabeth,2017.0,Painting,4500.0,Keep 
+67.0,2018.SOT.1.1,Dinosaur Tracks,Sotelo,Jose ,2017.0,Drawing,1000.0,Keep 
+68.0,2018.SOT.1.2,Golden Cheeked Warbler,Sotelo,Jose ,2017.0,Drawing,1000.0,Keep 
+69.0,2018.SOT.1.3,Mountain Lion,Sotelo,Jose ,2017.0,Drawing,1000.0,Keep 
+70.0,2018.SOT.1.4,White Tailed Deer,Sotelo,Jose ,2017.0,Drawing,1000.0,Keep 
+71.0,2018.SOT.1.5,Portal,Sotelo,Jose ,2017.0,Drawing,2000.0,Keep 
+72.0,2018.STR.1,We Were There (The Pershing Chinese and His Soldiers),Stringer,Hiromi,2017.0,Works on Paper,1500.0,Keep 
+73.0,2018.VALDE.1,Two Thousand Seventeen (7/10),Valdez,Vincent ,2017.0,Works on Paper,1200.0,Keep 
+74.0,2018.VAR.1,Innocent Age (Child With Horse) ,Vargas,Kathy,2017.0,Photograph,1000.0,Keep 
+75.0,2018.VAR.2,Innocent Age (Pinata Party),Vargas,Kathy,2017.0,Photograph,1000.0,Keep 
+76.0,2018.VAR.3,Innocent Age 1,Vargas,Kathy,2017.0,Photograph,1000.0,Keep 
+77.0,2018.VAR.4,Innocent Age 2,Vargas,Kathy,2017.0,Photograph,1000.0,Keep 
+78.0,2018.VAR.5,Innocent Age Heart Pattern,Vargas,Kathy,2017.0,Photograph,1000.0,Keep 
+79.0,2018.VAR.6,Corazon de Luto,Vargas,Kathy,2017.0,Framed lithograph,1200.0,Keep 
+80.0,2018.VIL.1,What HAPpened,Villalobos,Jose,2017.0,Works on Paper,1450.0,Keep 
+81.0,2018.ZAV.1.1,"fold our wings, and cease from wanderings 1",Zavala Castro,(blank),2017.0,Drawing,500.0,Keep 
+82.0,2018.ZAV.1.2,"fold our wings, and cease from wanderings 2",Zavala Castro,(blank),2017.0,Drawing,500.0,Keep 
+83.0,2018.ZAV.1.3,"fold our wings, and cease from wanderings 3",Zavala Castro,(blank),2017.0,Drawing,500.0,Keep 
+84.0,2018.ZAV.1.4,"fold our wings, and cease from wanderings 4",Zavala Castro,(blank),2017.0,Drawing,500.0,Keep 
+85.0,2018.ALV.1,The Edgewood Walkout of '68,Alvarez,Albert ,2018.0,Works on Paper,2500.0,Keep 
+86.0,2018.ARM.2.1,Healer II,Armendariz,Richard,2018.0,Works on Paper,3000.0,Keep 
+87.0,2018.ARM.2.2,Healer III,Armendariz,Richard,2018.0,Works on Paper,3000.0,Keep 
+88.0,2018.BIS.1.1,#3,Bishop ,(blank),2018.0,Drawing,500.0,Keep 
+89.0,2018.BIS.1.2,#12,Bishop ,(blank),2018.0,Drawing,500.0,Keep 
+90.0,2018.BUR.1,"70 Mg of Vyvanse (Light Blue) 4/6, ",Burwell,(blank),2018.0,Works on Paper,500.0,Keep 
+91.0,2018.BUR.2,70 Mg of Vyvanse (Dark Blue) 5/6,Burwell,(blank),2018.0,Works on Paper,500.0,Keep 
+92.0,2018.BUR.3,70 Mg of Vyvanse (Purple) 2/3,Burwell,(blank),2018.0,Works on Paper,500.0,Keep 
+93.0,2018.BUR.4,El Toro y La Luna (7/11),Burwell,(blank),2018.0,Works on Paper,500.0,Keep 
+94.0,2018.CHAV.1,Cleto Rodriguez,Chavez,(blank),2018.0,Drawing,3250.0,Keep 
+95.0,2018.COR.1.1,WWII Series (Miguel Encinas),Coronado,Sam,2018.0,Works on Paper,1200.0,Keep 
+96.0,2018.COR.1.2,WWII Series (Raul Martinez) ,Coronado,Sam ,2018.0,Works on Paper,1200.0,Keep 
+97.0,2018.DEL.2,Keep the Faith,De La Cruz,Joseph,2018.0,Drawing,2000.0,Keep 
+98.0,2018.DEL.5,We Are Still Here,De La Cruz,Joseph,2018.0,Drawing,2000.0,Keep 
+99.0,2018.LOPE.1, Que Viva Kelly Field,Lopez,(blank),2018.0,Painting,3500.0,Keep 
+100.0,2018.MAC.1,Mask (Red),Macias,Alejandro,2018.0,Painting,1500.0,Keep 
+101.0,2018.MAC.2,American Camo,Macias,Alejandro,2018.0,Works on Paper,1500.0,Keep 
+102.0,2018.MAC.3,Nopal en la Frente ,Macias,Alejandro,2018.0,Works on Paper,1500.0,Keep 
+103.0,2018.MEJ.1,My Mother's Passport,Mejorado,(blank),2018.0,Photograph,1500.0,Keep 
+104.0,2018.MEN.1,"Lisa Wong, Acenar and Rosarios",Menjivar,Mark ,2018.0,Photograph,2000.0,Keep 
+105.0,2018.MEN.2,Carino Cortez ,Menjivar,Mark,2018.0,Photograph,2000.0,Keep 
+106.0,2018.MEN.3,"Gerardo Calvillo, Mirasol and Soluna",Menjivar,Mark,2018.0,Photograph,2000.0,Keep 
+107.0,2018.MEN.4,Johnny Hernandez,Menjivar,Mark,2018.0,Photograph,2000.0,Keep 
+108.0,2018.MEN.5,Rebel Mariposa,Menjivar,Mark,2018.0,Photograph,2000.0,Keep 
+109.0,2018.MEN.6,Rico Torres,Menjivar,Mark,2018.0,Photograph,2000.0,Keep 
+110.0,2018.MOJ.1,Sky Traveler,Mojica,(blank),2018.0,Painting,5000.0,Keep 
+111.0,2018.MOJ.A.1,Childress Memorial Church of God in Christ,Mojica,Abraham ,2018.0,Painting,3000.0,Keep 
+112.0,2018.MOJ.A.2,Mario's ,Mojica,Abraham ,2018.0,Painting,3000.0,Keep 
+113.0,2018.MOJ.A.3,Miller's Bar B-Q,Mojica,Abraham ,2018.0,Painting,3000.0,Keep 
+114.0,2018.MOJ.A.4,Whopper Burger,Mojica,Abraham ,2018.0,Painting,3000.0,Keep 
+115.0,2018.MOR.1,Chapallo Luchon,Mora,(blank),2018.0,Works on Paper,300.0,Keep 
+116.0,2018.MOR.2,El Diente Alfilado,Mora,(blank),2018.0,Works on Paper,300.0,Keep 
+117.0,2018.MOR.3,Griton,Mora,(blank),2018.0,Works on Paper,300.0,Keep 
+118.0,2018.MOR.4,Lloron,Mora,(blank),2018.0,Works on Paper,300.0,Keep 
+119.0,2018.MOR.5,Muecas,Mora,(blank),2018.0,Works on Paper,300.0,Keep 
+120.0,2018.MOR.6,Triston,Mora,(blank),2018.0,Works on Paper,300.0,Keep 
+121.0,2018.MOR.7,Cowboy Print,Mora,(blank),2018.0,Works on Paper,500.0,Keep 
+122.0,2018.MOR.8,La Dust Demonia,Mora,(blank),2018.0,Works on Paper,1500.0,Keep 
+123.0,2018.MOR.9,Montando a la Escoba Voladora,Mora,(blank),2018.0,Works on Paper,1500.0,Keep 
+124.0,2018.OLS.1,Chiesa ,Olsen ,(blank),2018.0,Works on Paper,1800.0,Keep 
+125.0,2018.OLS.2,Da Cosa Nasce Cosa VI,Olsen ,(blank),2018.0,Works on Paper,1800.0,Keep 
+126.0,2018.OLS.3,Da Cosa Nasce Cosa VII,Olsen ,(blank),2018.0,Works on Paper,1800.0,Keep 
+127.0,2018.OLS.4,Esercizio,Olsen ,(blank),2018.0,Works on Paper,1800.0,Keep 
+128.0,2018.OLS.5,Pentimento VI,Olsen ,(blank),2018.0,Works on Paper,2200.0,Keep 
+129.0,2018.OLS.6,Pentimento VIII,Olsen ,(blank),2018.0,Works on Paper,2200.0,Keep 
+130.0,2018.ORTE.1.1,La Marcha de Los Desvalidos,Ortega,Tony,2018.0,Works on Paper,1200.0,Keep 
+131.0,2018.ORTE.1.2,La Marcha de Ernesto Che Deleon,Ortega,Tony,2018.0,Works on Paper,1200.0,Keep 
+132.0,2018.ORTE.1.3,La Marcha de Lupe Liberty ,Ortega,Tony,2018.0,Works on Paper,1200.0,Keep 
+133.0,2018.PERE.1,First in the Field,Perez,(blank),2018.0,Works on Paper,3500.0,Keep 
+134.0,2018.ARR.1.1,Mission Concepcion,Arredondo,Richard,2019.0,Works on Paper,500.0,Keep 
+135.0,2018.ARR.1.2,Mission Espada,Arredondo,Richard,2019.0,Works on Paper,700.0,Keep 
+136.0,2018.ARR.1.3,Mission San Antonio de Valero,Arredondo,Richard,2019.0,Works on Paper,500.0,Keep 
+137.0,2018.ARR.1.4,Mission San Jose,Arredondo,Richard,2019.0,Works on Paper,700.0,Keep 
+138.0,2018.ARR.1.5,Mission San Jose Baroque Entrance,Arredondo,Richard,2019.0,Works on Paper,700.0,Keep 
+139.0,2018.MIJ.2,Untitled (T-shirt Series IV),Mijangos,Alberto ,2019.0,Painting,4000.0,Keep 
+140.0,2018.MIJ.3,Untitled (T-shirt Series Striped Shirt) ,Mijangos,Alberto ,2019.0,Painting,4000.0,Keep 
+141.0,2018.MIJ.4,Untitled (T-shirt Series Yellow Belt) ,Mijangos,Alberto ,2019.0,Painting,4000.0,Keep 
+142.0,2018.MIJ.5,Flag Series (untitled),Mijangos,Alberto ,2019.0,Painting,5000.0,Keep 
+143.0,2018.MIJ.6,Meditation on Gestures aka Meditation Cycles,Mijangos,Alberto ,2019.0,Painting,10000.0,Keep 
+144.0,2018.MIJ.7,T-Shirt Series Untitled (Path Marked by Stars),Mijangos,Alberto ,2019.0,Painting,12500.0,Keep 
+145.0,2019.ALV.1,Edgewood '55,Alvarez,(blank),2019.0,Works on Paper,2750.0,Keep 
+146.0,2019.AND.1,Portrait of Enrique Sánchez,Andrade,Fernando,2019.0,Works on Paper,3250.0,Keep 
+147.0,2019.AND.2, conciencia/conscious,Andrade,Fernando,2019.0,Works on Paper,6000.0,Keep 
+148.0,2019.AND.3, permanecer/remain,Andrade,Fernando,2019.0,Works on Paper,6000.0,Keep 
+149.0,2019.AND.4, plenitud/plenitud,Andrade,Fernando,2019.0,Works on Paper,6000.0,Keep 
+150.0,2019.ARM.1,Untitled,Armendariz,(blank),2019.0,Works on Paper,300.0,Keep 
+151.0,2019.ARM.2, HUN (Kara Walker),Armendariz,(blank),2019.0,Painting,4800.0,Keep 
+152.0,2019.ARM.3, Cono de Fuego,Armendariz,(blank),2019.0,Painting,4800.0,Keep 
+153.0,2019.ARM.4, Time Will Tell,Armendariz,(blank),2019.0,Works on Paper,2000.0,Keep 
+154.0,2019.CRU.1,Fort Sam Houston,De La Cruz,(blank),2019.0,Works on Paper,3250.0,Keep 
+155.0,2019.DEL.1,Fred's Fish Fry,De La Cruz,Joe ,2019.0,Drawing,2500.0,Keep 
+156.0,2019.DEL.2,H.E.B. Grocery Store,De La Cruz,Joe ,2019.0,Drawing,2500.0,Keep 
+157.0,2019.DEL.3,Church's Chicken,De La Cruz,Joe ,2019.0,Drawing,2500.0,Keep 
+158.0,2019.DEL.4,Burger Boy Restaurant,De La Cruz,Joe ,2019.0,Drawing,2500.0,Keep 
+159.0,2019.ESP.1, Filas II ,Esparza,(blank),2019.0,Installation,5000.0,Keep 
+160.0,2019.ESP.2, Ra,Esparza,(blank),2019.0,Photograph,1476.0,Keep 
+161.0,2019.ESP.3, Mother Moon,Esparza,(blank),2019.0,Photograph,1464.3400000000001,Keep 
+162.0,2019.ESP.4, Bird of Flight,Esparza,(blank),2019.0,Photograph,1560.26,Keep 
+163.0,2019.ESP.5, Si la Tierra Pudiera Hablar,Esparza,(blank),2019.0,Photograph,1461.6799999999998,Keep 
+164.0,2019.ESQ.1, Golden Hand,Esquivel,(blank),2019.0,Works on Paper,4500.0,Keep 
+165.0,2019.FEL.1,What the Military Gave Me: Portrait of Danielle Hargrove,Felix,(blank),2019.0,Mixed Media,2500.0,Keep 
+166.0,2019.FRA.1,"Felisha, San Antonio",Francis ,Anthony,2019.0,Photograph,1000.0,Keep 
+167.0,2019.FRA.2,"Rafael, San Antonio",Francis ,Anthony,2019.0,Photograph,1000.0,Keep 
+168.0,2019.FRA.3,"Rudy, San Antonio",Francis ,Anthony,2019.0,Photograph,1000.0,Keep 
+169.0,2019.GAR.1,"For Action, Unity, and Progress ",Garcia,Adriana,2019.0,Painting,2500.0,Keep 
+170.0,2019.JUN.1,Portrait of Frank M. Tejeda,Jung,(blank),2019.0,Works on Paper,3500.0,Keep 
+171.0,2019.MAR.1, Horacio,Martinez,(blank),2019.0,Works on Paper,1528.94,Keep 
+172.0,2019.MAR.2, La Chata,Martinez,(blank),2019.0,Works on Paper,1528.94,Keep 
+173.0,2019.MAR.3, Malecio,Martinez,(blank),2019.0,Works on Paper,1528.94,Keep 
+174.0,2019.MAR.4, Poncho,Martinez,(blank),2019.0,Works on Paper,1528.94,Keep 
+175.0,2019.MAT.1.1,Coming of Age (flag),Mathis,(blank),2019.0,Works on Paper,1700.0,Keep 
+176.0,2019.MAT.1.2,Coming of Age (salute),Mathis,(blank),2019.0,Works on Paper,1700.0,Keep 
+177.0,2019.MEN.1.1,From Brooks Air Force Base to Brooks,Menchaca,(blank),2019.0,Mixed Media,4250.0,Keep 
+178.0,2019.MEN.1.2,From Kelly Air Force to Port San Antonio,Menchaca,(blank),2019.0,Mixed Media,4250.0,Keep 
+179.0,2019.MOR.1, Mechanic,Mora,(blank),2019.0,Works on Paper,978.0,Keep 
+180.0,2019.MOR.10, Tinaco Naco (Trashy Water Tank),Mora,(blank),2019.0,Works on Paper,896.01,Keep 
+181.0,2019.MOR.2, Pikudo,Mora,(blank),2019.0,Works on Paper,984.49,Keep 
+182.0,2019.MOR.3, Cantale,Mora,(blank),2019.0,Works on Paper,996.0,Keep 
+183.0,2019.MOR.4, Me Doblo Pero No Me Quiebro,Mora,(blank),2019.0,Works on Paper,996.01,Keep 
+184.0,2019.MOR.5, Shiny Barrendero,Mora,(blank),2019.0,Works on Paper,978.4,Keep 
+185.0,2019.MOR.6, Time Will Tell,Mora,(blank),2019.0,Works on Paper,978.0,Keep 
+186.0,2019.MOR.7, King de la Wirira (King of the Weed Eater),Mora,(blank),2019.0,Works on Paper,978.4,Keep 
+187.0,2019.MOR.8, Con Todo y Tiliches Se Aventura a la Tierra Prometida,Mora,(blank),2019.0,Works on Paper,1196.01,Keep 
+188.0,2019.MOR.9, Ya Mero Llego (Almost There),Mora,(blank),2019.0,Works on Paper,1525.1100000000001,Keep 
+189.0,2019.MUN.1,Back Bone 2/96,Munro,(blank),2019.0,Works on Paper,500.0,Keep 
+190.0,2019.PER.1, Ostrich Boots on Travis Street,Perez,(blank),2019.0,Photograph,500.0,Keep 
+191.0,2019.PER.2,64,Perez,(blank),2019.0,Photograph,500.0,Keep 
+192.0,2019.PER.3, Pitbull on a Roof,Perez,(blank),2019.0,Photograph,1500.0,Keep 
+193.0,2019.PER.4, Here's the…,Perez,(blank),2019.0,Photograph,500.0,Keep 
+194.0,2019.PER.5, Floyd's Dairy Bar,Perez,(blank),2019.0,Photograph,1500.0,Keep 
+195.0,2019.PER.6, Whatburger,Perez,(blank),2019.0,Photograph,450.0,Keep 
+196.0,2019.REN.1, Madres y Padres/Mothers & Fathers,Renteria,(blank),2019.0,Drawing,1000.0,Keep 
+197.0,2019.REN.2, Hijos e Hijas/Sons & Daughters,Renteria,(blank),2019.0,Drawing,1000.0,Keep 
+198.0,2019.REN.3, Periodistas/Journalists,Renteria,(blank),2019.0,Drawing,1000.0,Keep 
+199.0,2019.ROE.1,Tuskegee Airmen,Roeder,(blank),2019.0,Painting,2000.0,Keep 
+200.0,2019.SAN.1, Paleta,Sanchez,Eva ,2019.0,Painting,3500.0,Keep 
+201.0,2019.SAN.2, Mangonada,Sanchez,Eva,2019.0,Painting,3500.0,Keep 
+202.0,2019.SAN.3, Red Salsa,Sanchez,Eva,2019.0,Painting,2100.0,Keep 
+203.0,2019.SAN.4, Green Salsa,Sanchez,Eva,2019.0,Painting,2100.0,Keep 
+204.0,2019.SAN.5, Salsa Quemada,Sanchez,Eva,2019.0,Painting,2100.0,Keep 
+205.0,2019.SER.1, Sentando El Camino II (Alicia),Serna,(blank),2019.0,Print,350.0,Keep 
+206.0,2019.SER.2, Sentando El Camino I (Beto),Serna,(blank),2019.0,Print,350.0,Keep 
+207.0,2019.SER.3, Como en Casa,Serna,(blank),2019.0,Print,400.0,Keep 
+208.0,2019.SER.4, A La Vuela de La Esquina,Serna,(blank),2019.0,Print,400.0,Keep 
+209.0,2019.SER.5, Como en Casa,Serna,(blank),2019.0,Installation - prints + sculpture,700.0,Keep 
+210.0,2019.STR.1, The Four Pillars/Progenitors,Stringer,(blank),2019.0,Drawing,2050.0,Keep 
+211.0,2019.STR.2, The Two Blocks/Choices,Stringer,(blank),2019.0,Drawing,2050.0,Keep 
+212.0,2019.STR.3, The Three Mountains/Lovers,Stringer,(blank),2019.0,Drawing,2050.0,Keep 
+213.0,2019.TOR.1,Olga,Toribio-Martinez,(blank),2019.0,Painting,2000.0,Keep 
+214.0,2019.TRE.1, Peeking Through,Trevino,(blank),2019.0,Painting,400.0,Keep 
+215.0,2019.TRE.2, Shadows in Me,Trevino,(blank),2019.0,Painting,300.0,Keep 
+216.0,2019.TRE.3, Shadows We See,Trevino,(blank),2019.0,Painting,300.0,Keep 
+217.0,2019.TRE.4, Hold Me,Trevino,(blank),2019.0,Painting,400.0,Keep 
+218.0,2019.TRE.5, Chance,Trevino,(blank),2019.0,Painting,400.0,Keep 
+219.0,2019.VAN.1,CARREN,Vance,(blank),2019.0,Works on Paper,1000.0,Keep 
+220.0,2019.VAN.2,First Fitting,Vance,(blank),2019.0,Works on Paper,1000.0,Keep 
+221.0,2019.VAN.3,PAWS,Vance,(blank),2019.0,Works on Paper,1000.0,Keep 
+222.0,2019.VAN.4,Toe Tapper,Vance,(blank),2019.0,Works on Paper,1000.0,Keep 
+223.0,2019.VAN.5,Prosthetics Painting,Vance,(blank),2019.0,Works on Paper,1000.0,Keep 
+224.0,2019.VAN.6,Walker,Vance,(blank),2019.0,Works on Paper,1000.0,Keep 
+225.0,2019.VIL.1,Cambio la forma de caminar,Villalobos,(blank),2019.0,Mixed Media,650.0,Keep 
+226.0,2019.VIL.2,Lo misma vaina que tu papa,Villalobos,(blank),2019.0,Mixed Media,650.0,Keep 
+227.0,2019.VIL.3,No puede corregir,Villalobos,(blank),2019.0,Mixed Media,650.0,Keep 
+228.0,2019.VIL.4,Oyelo bien,Villalobos,(blank),2019.0,Mixed Media,650.0,Keep 
+229.0,2019.VIL.5,Palo que nace doblado,Villalobos,(blank),2019.0,Mixed Media,650.0,Keep 
+230.0,2019.VIL.6,Fues Criado como los dema,Villalobos,(blank),2019.0,Mixed Media,650.0,Keep 
+231.0,2019.VIL.7,Vaquero Wrangler,Villalobos,(blank),2019.0,Mixed Media,750.0,Keep 
+232.0,2019.VIL.8.1,Bota #1,Villalobos,(blank),2019.0,Mixed Media,850.0,Keep 
+233.0,2019.VIL.8.2,Bota #2,Villalobos,(blank),2019.0,Mixed Media,850.0,Keep 
+234.0,2019.VIL.8.3,Bota #3,Villalobos,(blank),2019.0,Mixed Media,850.0,Keep 
+235.0,2019.ZAB.1,Staff Sergeant Angela D. Russell,Zabala,(blank),2019.0,Photograph,875.0,Keep 
+236.0,2019.ZAB.10, Flores Negras II,Zabala,(blank),2019.0,Mixed media print,450.0,Keep 
+237.0,2019.ZAB.11, Flores Negras III,Zabala,(blank),2019.0,Mixed media print,750.0,Keep 
+238.0,2019.ZAB.12, Flores Negras IV,Zabala,(blank),2019.0,Mixed media print,2350.0,Keep 
+239.0,2019.ZAB.2,Captain Brian Gifford,Zabala,(blank),2019.0,Photograph,875.0,Keep 
+240.0,2019.ZAB.3,Colonel Jodelle M. Schroeder,Zabala,(blank),2019.0,Photograph,875.0,Keep 
+241.0,2019.ZAB.4,Senior Airman Alicia Gilean,Zabala,(blank),2019.0,Photograph,875.0,Keep 
+242.0,2019.ZAB.5,Senior Airman Jessica Beatrice Rauda Estrada,Zabala,(blank),2019.0,Photograph,875.0,Keep 
+243.0,2019.ZAB.6,Colonel Ronnie Castillo Cruz,Zabala,(blank),2019.0,Photograph,875.0,Keep 
+244.0,2019.ZAB.7,Airman First Class Kyra Santiago,Zabala,(blank),2019.0,Photograph,875.0,Keep 
+245.0,2019.ZAB.8,Colonel Michael Dean Wirt,Zabala,(blank),2019.0,Photograph,875.0,Keep 
+246.0,2019.ZAB.9, Flores Negras I,Zabala,(blank),2019.0,Mixed media print,550.0,Keep 
+247.0,2019.ZAV.1.1,Portrait of Eric Alva; Transcending of Experience Through the Importance of Life (flag),Zavala Castro,Juan,2019.0,Works on Paper,2000.0,Keep 
+248.0,2019.ZAV.1.2,Portrait of Eric Alva; Transcending of Experience Through the Importance of Life (seal),Zavala Castro,Juan,2019.0,Works on Paper,2000.0,Keep 
+249.0,2019.SEB.17,Simplicial I,Carbajal,Enrique (Sebastian),2020.0,31.5 x 31.5 in. (frame 24.5 x 34.5 in),909.0,Keep 
+250.0,2019.SEB.18,Simplicial II,Carbajal,Enrique (Sebastian),2020.0,31.5 x 31.5 in. (frame 24.5 x 34.5 in),909.0,Keep 
+251.0,2019.SEB.19,Simplicial III,Carbajal,Enrique (Sebastian),2020.0,31.5 x 31.5 in. (frame 24.5 x 34.5 in),909.0,Keep 
+252.0,2019.SEB.20,Hiperespacio II,Carbajal,Enrique (Sebastian),2020.0,31.5 x 31.5 in. (frame 24.5 x 34.5 in),909.0,Keep 
+253.0,2019.SEB.21,Hiperespacio III,Carbajal,Enrique (Sebastian),2020.0,31.5 x 31.5 in. (frame 24.5 x 34.5 in),909.0,Keep 
+254.0,2019.SEB.22,Hiperespacio IV,Carbajal,Enrique (Sebastian),2020.0,31.5 x 31.5 in. (frame 24.5 x 34.5 in),909.0,Keep 
+255.0,2019.SEB.23,Calabi I,Carbajal,Enrique (Sebastian),2020.0,31.5 x 31.5 in. (frame 24.5 x 34.5 in),909.0,Keep 
+256.0,2019.SEB.24,Turbulencia I,Carbajal,Enrique (Sebastian),2020.0,31.5 x 31.5 in. (frame 24.5 x 34.5 in),909.0,Keep 
+257.0,2019.SEB.25,Turbulencia,Carbajal,Enrique (Sebastian),2020.0,31.5 x 31.5 in. (frame 24.5 x 34.5 in),909.0,Keep 
+258.0,2019.SEB.26,Simplicial IV,Carbajal,Enrique (Sebastian),2020.0,31.5 x 31.5 in. (frame 24.5 x 34.5 in),909.0,Keep 
+259.0,2019.SEB.27,Calabi II,Carbajal,Enrique (Sebastian),2020.0,31.5 x 31.5 in. (frame 24.5 x 34.5 in),909.0,Keep 
+260.0,2020.AND.1,Don Pedro Huizar,Andrade,Fernando ,2020.0,Graphite on Paper,1000.0,Keep 
+261.0,2020.ARR.1,The Native People,Arredondo,Richard ,2020.0,Pen & ink line art digitally printed on Mylar with oil-based marker wash.,1000.0,Keep 
+262.0,2020.BLA.1,Fernando Ramos,Blancas,David ,2020.0,Acylic on Canvas,1000.0,Keep 
+263.0,2020.CAD.1,"Down on Leigh, 1",Cadena,Katherine,2020.0,"1 artwork, 2 canvases, 52' x 34'",2500.0,Keep 
+264.0,2020.CAD.2,"Down on Leigh, 2",Cadena,Katherine,2020.0,"1 artwork, 2 canvases, 52' x 34'",2500.0,Keep 
+265.0,2020.CHE.1,Between Broken Bonds,Cheves,Kallie,2020.0,"Archival pigment print on paper, mounted on broken door, 6.5' a 5.5' x 3""",4500.0,Keep 
+266.0,2020.DAT.1,Gone But Not Forgotten,Datchuk,Jennifer Ling ,2020.0,Mixed Media sculpture enclosed in plexiglass box,3000.0,Keep 
+267.0,2020.DAT.2,Forgotten But Not Gone,Datchuk,Jennifer Ling ,2020.0,Mixed Media sculpture enclosed in plexiglass box,3000.0,Keep 
+268.0,2020.ESP.1,"Shelter, My Avalanche",Esparza,Jenelle ,2020.0,"Fabric, 5 x 6 ft",2120.0,Keep 
+269.0,2020.FLO.1,May Your Vessel Be,Flores,Audrya,2020.0,"48"" x 48"" acrylic on canvas",1750.0,Keep 
+270.0,2020.FOX.1,For Momma,Fox,Sarah,2020.0,"Cyanotype, 66"" x 48""",5000.0,Keep 
+271.0,2020.FRE.1,10 Boloero Series Benches,(blank),French & Michigan,2020.0,"10 Bolero Series Benches, Pecan Wood, 6 feet in length",9000.0,Keep 
+272.0,2020.GAR.1,"Maria Victoria de la Cruz, Domestic Worker, TOP Activist",Garcia,Adriana,2020.0,Acrylic on wood,2500.0,Keep 
+273.0,2020.GAR.2,Emma Tenayuca,Garcia,Adriana,2020.0,Acrylic on wood,2500.0,Keep 
+274.0,2020.GAR.3,Rosie Castro,Garcia,Adriana,2020.0,Acrylic on wood,2500.0,Keep 
+275.0,2020.GAR.4,Adina de Zavala,Garcia,Adriana,2020.0,Acrylic on panel,1000.0,Keep 
+276.0,2020.GNE.1,Madam Candelaria,Gnehm,Cassie ,2020.0,Oil on canvas,1000.0,Keep 
+277.0,2020.GONZ.1,The Maspero Family and the Keepers of the Espada Acequia,Gonzalez,Raul Rene,2020.0,Pen & ink line art digitally printed on Mylar with oil-based marker wash.,1000.0,Keep 
+278.0,2020.GONZA.1,The Sandoval/Flores Family,Gonzalez,Omar ,2020.0,Serigraph,1000.0,Keep 
+279.0,2020.HAR.1,Time is Also Yours,Harrison,Megan,2020.0,"Ink and Gesso on paper, 25.5"" x 25.5""",2900.0,Keep 
+280.0,2020.HER.1,Watching Eyes,Hernandez-Burwell,Ana,2020.0,26 individual objects that vary in sizes from 4 - 12 inches,2600.0,Keep 
+281.0,2020.HERN.1,Of Women (1 of 3) ,Hernandez,Mari ,2020.0,Framed photograph ,2000.0,Keep 
+282.0,2020.HERN.2,Of Women (2 of 3) ,Hernandez,Mari ,2020.0,Framed photograph ,2000.0,Keep 
+283.0,2020.HERN.3,Of Women (3 of 3),Hernandez,Mari ,2020.0,Framed photograph ,2000.0,Keep 
+284.0,2020.HIN.1,Our Health and Wellness,Hinton-Robinson,Karen,2020.0,"Quilt with assorted fabrics (metallic, cotton, and felt), lace and rick rack trim, embroidery, crystals, photo transfer, applique's, thread painting, fabric paint, yarn. Wool batting and longarm quilting, 56 in x 62 in",2000.0,Keep 
+285.0,2020.HIR.1,"""Untitled""",Stringer,Hiromi,2020.0,30 x 30 inches,1800.0,Keep 
+286.0,2020.JOH.1,I Used to be Somebody,Johnson-Alexander,Carmen,2020.0,"Mixed media, acrylic paint, paper, and ink. 36"" x 36' x 2""",3000.0,Keep 
+287.0,2020.MIJ.1,Hope is a Thing With Wings,Mijangos-Rapp,Laura,2020.0,"Framed, Mixed Medium, 51 3/8 H x 41 1/4 W",4000.0,Keep 
+288.0,2020.MON.1,Father Balthazar Janacek,Montoya,Christopher,2020.0,Oil on canvas,1000.0,Keep 
+289.0,2020.MUN.1,Worn Out,Munro,Cherise,2020.0,"Acrylic on canvas, 24 x 32 in",1500.0,Keep 
+290.0,2020.MUN.2,Mallett #2,Munro,Cherise,2020.0,"Acrylic on canvas, 24 x 32 in",1500.0,Keep 
+291.0,2020.NIE.1,Untitled ,Nierman,Leonardo,2020.0,woven tapestry,16000.0,Keep 
+292.0,2020.ROD.1,Maria Calvillo,Rodriguez,Elizabeth,2020.0,Acrylic on canvas,1000.0,Keep 
+293.0,2020.SAN.1,Sister Pauline Fierro,Sanchez ,Eva,2020.0,Acrylic on canvas,1000.0,Keep 
+294.0,2020.TRE.1,The Two Alvinos,Trevino,Jesus,2020.0,Oil on panel,1000.0,Keep 
+295.0,2021.JOH.01,Black Top Fun,Johnson Alexander,Carmen,2021.0,Acrylic on canvas,500.0,Keep 
+296.0,2021.JOH.02,On Grandma's Back Steps,Johnson Alexander,Carmen,2021.0,Acrylic on canvas,600.0,Keep 
+297.0,2021.JOH.03,Snapshot,Johnson Alexander,Carmen,2021.0,Acrylic on canvas,2500.0,Keep 
+298.0,2021.JOH.04,The Glider,Johnson Alexander,Carmen,2021.0,Acrylic on canvas,2700.0,Keep 
+299.0,2021.QUI.1.1,"A New World, 2021",Quintanilla,Octavio,2022.0,Mixed Media (mostly acrylic paint) on Archival Paper,2000.0,Keep 
+300.0,2021.QUI.1.2,"Unión, 2021",Quintanilla,Octavio,2022.0,Mixed Media (mostly acrylic paint) on Archival Paper,2000.0,Keep 
+301.0,2021.QUI.1.3,"Con el corazón en alto, 2021",Quintanilla,Octavio,2022.0,Mixed Media (mostly acrylic paint) on Archival Paper,2000.0,Keep 
+302.0,2021.QUI.1.4,"Organized, 2021",Quintanilla,Octavio,2022.0,Mixed Media (mostly acrylic paint) on Archival Paper,2000.0,Keep 
+303.0,2021.QUI.1.5,"Union, 2021 (Two pieces are named Union)",Quintanilla,Octavio,2022.0,Mixed Media (mostly acrylic paint) on Archival Paper,2000.0,Keep 
+304.0,2022.BRI.1,Guajolote en Mole Poblano,Briseno ,Rolando,2022.0,"Acrylic, ground chile pipian and magic marker on kitchen napkin",4000.0,Keep 
+305.0,2022.BRI.2,NAFTA,Briseno ,Rolando,2022.0,Acrylic on dish towel,4000.0,Keep 
+306.0,2022.BRI.3,Frutas Frescas,Briseno ,Rolando,2022.0,Acrylic on dish towel,4000.0,Keep 
+307.0,2022.ESP.1,Old Souls 4,Esparza,Jenelle,2022.0,Charcoal on paper,1250.0,Keep 
+308.0,2022.ESP.2,Old Souls 5,Esparza,Jenelle,2022.0,Charcoal on paper,1250.0,Keep 
+309.0,2022.ESP.3,Old Souls 6,Esparza,Jenelle,2022.0,Charcoal on paper,1250.0,Keep 
+310.0,2022.ESP.4,Old Souls 7,Esparza,Jenelle,2022.0,Charcoal on paper,1250.0,Keep 
+311.0,2022.HER.01,Papel Picado VOTA (Blue) ,Hernandez,Guadalupe,2022.0,Handmade paper,250.0,Keep 
+312.0,2022.HER.02,Papel Picado VOTA (Yellow) ,Hernandez,Guadalupe,2022.0,Handmade paper,250.0,Keep 
+313.0,2022.HER.03,Papel Picado VOTA (Purple),Hernandez,Guadalupe,2022.0,Handmade paper,250.0,Keep 
+314.0,2022.HER.04,Papel Picado VOTA (Pink) ,Hernandez,Guadalupe,2022.0,Handmade paper,250.0,Keep 
+315.0,2022.HER.05,Papel Picado VOTA (Red) ,Hernandez,Guadalupe,2022.0,Handmade paper,250.0,Keep 
+316.0,2022.HER.06,Papel Picado Quetzalcoatl (Pink) ,Hernandez,Guadalupe,2022.0,Handmade paper,250.0,Keep 
+317.0,2022.HER.07,Papel Picado Quetzalcoatl (Orange),Hernandez,Guadalupe,2022.0,Handmade paper,250.0,Keep 
+318.0,2022.HER.08,Papel Picado Quetzalcoatl (Blue) ,Hernandez,Guadalupe,2022.0,Handmade paper,250.0,Keep 
+319.0,2022.HER.09,Papel Picado Quetzalcoatl (Maroon) ,Hernandez,Guadalupe,2022.0,Handmade paper,250.0,Keep 
+320.0,2022.HER.10,Papel Picado El Sol (Pink),Hernandez,Guadalupe,2022.0,Handmade paper,250.0,Keep 
+321.0,2022.HER.11,Papel Picado El Sol (Yellow),Hernandez,Guadalupe,2022.0,Handmade paper,250.0,Keep 
+322.0,2022.HER.12,Papel Picado El Sol (Orange),Hernandez,Guadalupe,2022.0,Handmade paper,250.0,Keep 
+323.0,2022.JOH.01,Heart of the House,Johnson Alexander,Carmen,2022.0,Acrylic on canvas,8500.0,Keep 
+324.0,2022.MAR.1,Bato con Sunglasses,Martinez,Cesar,2022.0,Acrylic on Muslin,8000.0,Keep 
+325.0,2022.MAR.2,Shorty,Martinez,Cesar,2022.0,Acrylic on canvas,10000.0,Keep 
+326.0,2022.ROD.1,"Blue Panther, The Stealthy Watcher",Rodriguez-Diaz,Angel,2022.0,Acrylic and oil on canvas,13000.0,Keep 
+327.0,2022.TRE.1,The Path Fading in the Sun,Trevino,Jesus,2022.0,Oil on canvas,5500.0,Keep 
+328.0,2022.TRE.2,Recounting Histories Fading in the Sun,Trevino,Jesus,2022.0,Oil on canvas,4500.0,Keep 
+329.0,2024.SOT.1.1,"Macro Detail, Buckhorn (Yellow)",Sotelo ,Jose ,2024.0,Buckhorn and iron gall ink on paper,1000.0,Keep - New to list 
+330.0,2024.SOT.1.2,"Macro Detail, Cochinilla (Pink)",Sotelo ,Jose ,2024.0,Cochinilla and iron gall ink on paper,1000.0,Keep - New to list 
+331.0,2024.SOT.1.3,"Macro Detail, Indigo (Blue)",Sotelo ,Jose ,2024.0,Indigo and iron gall ink on paper,1000.0,Keep - New to list 
+332.0,2024.BRI.1,American Table ,Briseno ,Rolando,2024.0,Acrylic on tablecloth,8000.0,Keep - New to list 
+333.0,2024.WIL.1.1,Palo Verde: What Makes You Unique Helps You Thrive,Willems ,Andrea B. ,2024.0,"Acylic on Bristol paper, mounted on birch panel ",750.0,Keep - New to list 
+334.0,2024.WIL.1.2,Esperanza: You Give Me Hope,Willems ,Andrea B. ,2024.0,"Acylic on Bristol paper, mounted on birch panel ",700.0,Keep - New to list 
+335.0,2024.WIL.1.3,Yucca: Faith & Protection,Willems ,Andrea B. ,2024.0,"Acylic on Bristol paper, mounted on birch panel ",900.0,Keep - New to list 
+336.0,2024.DEL.1.1,Ceiba ,De Luna,Celeste,2024.0,Color reduction woodcut on paper,1750.0,Keep - New to list 
+337.0,2024.DEL.1.2,Culebra Azul ,De Luna,Celeste,2024.0,Color reduction woodcut on paper,1750.0,Keep - New to list 
+338.0,2024.DEL.1.3,Three Comets,De Luna,Celeste,2024.0,Color reduction woodcut on paper,1750.0,Keep - New to list 
+339.0,2024.MON.1,Commute,Monsivais Hernandez,Linda,2024.0,Aluminum cans on wood panel,5000.0,Keep - New to list 
+,,,,,,Total Value,643413.6000000001,
+,,,,,,Total Pieces,339.0,
