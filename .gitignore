@@ -5,14 +5,12 @@ venv/
 *.pyc
 __pycache__/
 
-# Jupyter Notebook checkpoints
-.ipynb_checkpoints/
-
 # OS files
 .DS_Store
 
 # Ignore all contents of the data directory
 data/*
+
 data_csv/
 
 # Optionally exclude specific files you want to keep in data/
