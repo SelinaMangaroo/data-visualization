@@ -1,23 +1,29 @@
-# Virtual environment
+# -----------------------
+# Virtual Environment
+# -----------------------
 venv/
 
-# Python cache files
+# -----------------------
+# Python Caches
+# -----------------------
 *.pyc
 __pycache__/
 
-# OS files
+# -----------------------
+# OS-Specific Files
+# -----------------------
 .DS_Store
 
-# Ignore all contents of the data directory
-data/*
+# -----------------------
+# Data and Generated Output
+# -----------------------
+data/*          # Ignore all data contents
+!data/.keep     # Except a placeholder file
+data_csv/       # Auto-generated CSV conversions
+reports/        # PDF reports
 
-data_csv/
-
-# Optionally exclude specific files you want to keep in data/
-!data/.keep 
-
-# Generated pdf reports
-reports/
-
+# -----------------------
+# Local Environment Configs
+# -----------------------
 .env
 report_config.json
