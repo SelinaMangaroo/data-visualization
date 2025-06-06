@@ -3,7 +3,7 @@ import datetime
 import base64
 from dotenv import load_dotenv
 
-load_dotenv()  # Load .env variables
+load_dotenv(override=True)
 
 def generate_report_section(input_path, options=None, **kwargs):
     """

@@ -4,7 +4,7 @@ from xhtml2pdf import pisa
 from utils.convert_files import *
 from utils.load_config import load_report_config
 from dotenv import load_dotenv
-load_dotenv()
+load_dotenv(override=True)
 
 def process_and_generate_report(report_configs=None, general_options=None):
     """

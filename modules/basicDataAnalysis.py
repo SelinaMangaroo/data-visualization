@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(override=True)
 drop_empty_columns = os.getenv("DROP_EMPTY_COLUMNS", "true").lower() == "true"
 
 def generate_report_section(input_path, options=None, **kwargs):
@@ -41,7 +41,7 @@ def generate_report_section(input_path, options=None, **kwargs):
             current_columns = df.columns.tolist()
             dropped_columns = [col for col in original_columns if col not in current_columns]
             column_value_counts = df.count()
-            unique_values = {col: np.atleast_1d(df[col].unique()) for col in current_columns}
+            # unique_values = {col: np.atleast_1d(df[col].unique()) for col in current_columns}
             columns_with_zeros = {
                 col: (df[col] == 0).sum() > 0
                 for col in current_columns

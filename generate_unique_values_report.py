@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from xhtml2pdf import pisa
 from utils.convert_files import auto_convert_to_csv 
 
-load_dotenv()
+load_dotenv(override=True)
 
 def generate_unique_values_report(input_csv=None, column_names=None):
     """

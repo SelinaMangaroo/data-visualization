@@ -2,7 +2,8 @@ import pandas as pd
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(override=True)
+
 drop_empty_columns = os.getenv("DROP_EMPTY_COLUMNS", "true").lower() == "true"
 
 def generate_report_section(input_path, options=None, **kwargs):
@@ -56,7 +57,12 @@ def generate_report_section(input_path, options=None, **kwargs):
         all_columns.update(total_columns)
 
         stats.append({
-            "File": base_file_name,
+            # "File": base_file_name,
+            # "File": "<br>".join([base_file_name[i:i+20] for i in range(0, len(base_file_name), 20)]),
+            # "File": "<br>".join(
+            #         "_".join([part[i:i+25] for i in range(0, len(part), 25)])
+            #         for part in base_file_name.split("_")),
+            "File": base_file_name.replace("_", "_<br>"),
             "Total Columns": len(total_columns),
             "Dropped Columns": dropped_columns,
             "Populated Columns": populated_columns,
@@ -71,7 +77,7 @@ def generate_report_section(input_path, options=None, **kwargs):
     <table class="summary-table">
         <thead>
             <tr>
-                <th>File</th>
+                <th style="width: 250px;">File</th>
                 <th>Total Columns</th>
                 <th>Dropped Columns</th>
                 <th>Populated Columns</th>
@@ -106,12 +112,14 @@ def generate_report_section(input_path, options=None, **kwargs):
         <tbody>
     """
 
+            # <td>{', '.join(files_with_column)}</td>
+            # <td>{', '.join(file.replace('_', '_<br>') for file in files_with_column)}</td>
     for column in sorted(all_columns):
         files_with_column = [file for file, cols in file_columns.items() if column in cols]
         html_content += f"""
         <tr>
             <td>{column}</td>
-            <td>{', '.join(files_with_column)}</td>
+            <td>{'<br>'.join([', '.join(files_with_column)[i:i+40] for i in range(0, len(', '.join(files_with_column)), 40)])}</td>
         </tr>
         """
 
