@@ -1,6 +1,37 @@
-# Data Visualization Project
+# Data Visualization and Reporting Pipeline
 
-This project focuses on cleaning, processing, and visualizing datasets using Python. It is structured to provide a modular and extensible workflow for handling raw data, standardizing it, and extracting meaningful insights through visualization. Below is an overview of the project setup, functionality, and usage instructions.
+This project streamlines the process of converting, analyzing, and generating reports for datasets in XML, Excel, or CSV formats. It offers an automated and modular reporting workflow that supports multiple input types, structured outputs, and configurable behavior using `.env` and `report_config.json` files.
+
+---
+
+## Features
+
+### Auto File Conversion
+
+* Automatically converts `.xml`, `.xls`, and `.xlsx` files to CSV.
+* Each Excel tab is exported as an individual CSV.
+* Cleaned and structured CSVs are stored in the `data_csv/` directory.
+
+### Modular Report Generation
+
+* Uses a configuration-driven approach via `report_config.json`.
+* Supported modules:
+
+  * **coverpage**: Title, metadata, and logo.
+  * **summary**: Dataset overview.
+  * **barcharts**: Charts showing distribution of unique values.
+  * **basicDataAnalysis**: Column profiling and cleanup.
+* Fully extensible for future modules with minimal code changes.
+
+### Optional Unique Values Report
+
+* Generates a PDF showing unique values per column across one or more CSV files.
+* Columns specified via `.env` using `UNIQUE_VALUE_COLUMNS`.
+
+### Configurable via Environment Variables and JSON
+
+* `.env` holds paths and defaults.
+* `report_config.json` holds report module configurations.
 
 ---
 
@@ -8,179 +39,124 @@ This project focuses on cleaning, processing, and visualizing datasets using Pyt
 
 ```
 data-visualization/
-├── assets/                       # Static assets (CSS, images, logos)
+├── assets/                  # Static assets for reports
 │   ├── styles.css                # Stylesheet for PDF reports
 │   ├── CA_Logo.png               # Logo for the report cover page
-├── data/                         # Datasets to be processed
-├── notebooks/
-│   ├── clean_files.ipynb         # Notebook for cleaning data
-│   ├── visualize_files.ipynb     # Notebook for visualizing data
-├── scripts/
-│   ├── __init__.py               # Marks the directory as a module
-│   ├── modules/                  # Modularized report generation components
-│   │   ├── __init__.py           # Marks the directory as a module
-│   │   ├── barcharts.py          # Bar chart generation module
-│   │   ├── basicDataAnalysis.py  # Basic data analysis module
-│   │   ├── coverpage.py          # Cover page generation module
-│   │   ├── summary.py            # Summary generation module
-│   ├── generate_report.py        # Main script for orchestrating report generation
-│   ├── convert_to_csv.py         # Script for converting XML and Excel files to CSV
-├── reports/                      # Generated reports (PDF)
-├── venv/                         # Virtual environment (not tracked in version control)
-├── .gitignore                    # Specifies files/directories to exclude from Git
-├── README.md                     # Project documentation
-├── requirements.txt              # List of dependencies
+├── data/                    # Raw input files
+├── data_csv/                # Auto-generated CSVs after conversion
+├── modules/                 # Modular report components
+│   ├── barcharts.py              # Bar chart generation module
+│   ├── basicDataAnalysis.py      # Basic data analysis module
+│   ├── coverpage.py              # Cover page generation module
+│   ├── summary.py                # Summary generation module
+├── reports/                 # Final PDF reports
+├── utils/                   # Helper utilities
+│   ├── convert_files.py          # Function for file conversion
+│   ├── load_config.py            # Functon to load the configuration file
+├── generate_report.py       # Report generation logic
+├── generate_unique_values_report.py  # Unique values report generator
+├── report_config.json       # Config for report modules
+├── .env                     # Environment variables
+├── venv/                    # Virtual environment (not tracked in version control)
+├── .gitignore               # Specifies files/directories to exclude from Git
+├── README.md                # Project documentation
+├── requirements.txt         # List of dependencies
 ```
-
----
-
-## Features
-
-### 1. **Data Cleaning**
-- **Notebook**: `clean_files.ipynb`
-- **Purpose**: Prepares raw datasets for further analysis.
-- **Key Tasks**:
-  - Removes columns with missing or irrelevant values.
-  - Standardizes specific column values (e.g., correcting column inconsistencies).
-  - Fills `NaN` values with defaults (e.g., `0`).
-  - Outputs a cleaned dataset for further processing.
-
-### 2. **Data Visualization**
-- **Notebook**: `visualize_files.ipynb`
-- **Purpose**: Provides insights into datasets through summary statistics and visualizations.
-- **Key Tasks**:
-  - Visualizes unique value distributions across columns.
-  - Generates interactive and static bar charts using `plotly`.
-  - Filters datasets for specific columns of interest.
-
-### 3. **File Conversion**
-- **Script**: `convert_to_csv.py`
-- **Purpose**: Converts raw data files into a CSV format for easier processing.
-- **Key Features**:
-  - Cleans malformed characters in XML files (`zap_gremlins`).
-  - Converts XML files to CSV (`xml_to_csv`).
-  - Converts Excel files (`.xls` and `.xlsx`) to CSV (`convert_excel_to_csv`).
-
-### 4. **Modular PDF Report Generation**
-- **Script**: `generate_report.py`
-- **Purpose**: Processes datasets, generates analysis, and compiles results into a PDF report.
-- **Key Features**:
-  - **Dynamic Modular Architecture**: Each report section (cover page, summary, basic data analysis, bar charts) is implemented in its own module in the `modules/` directory.
-  - **Customizable**: Users can specify which report sections to include and configure them via `report_configs` in the main function.
-
-
-  - **Cover Page**: Displays the file/directory name, report generation date, and file size.
-
-  - **Summary Section**: Includes statistics like the number of rows, current columns, dropped columns, and a column presence table.
-
-  - **Basic Data Analysis**:
-    - Analyzes and cleans datasets.
-    - Saves processed datasets with dropped columns in `data/{input_name}_dropped/`.
-    
-  - **Bar Charts**:
-    - Automatically generates bar charts for numeric columns.
-    - No need to specify `x_axis` or `y_axis` explicitly.
 
 ---
 
 ## Installation
 
-### Prerequisites
-- Python 3.8+
-- `pip` (Python package manager)
-
-### Steps
-1. Clone the repository:
-   ```bash
-   git clone <repository-url>
-   cd data-visualization
-   ```
-
-2. Set up a virtual environment:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate   # On Windows: venv\Scripts\activate
-   ```
-
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
----
-
-## Usage
-
-### 1. Running Notebooks
-- Open Jupyter Notebook:
-  ```bash
-  jupyter notebook
-  ```
-- Navigate to the `notebooks/` directory and run:
-  - `clean_files.ipynb` for data cleaning.
-  - `visualize_files.ipynb` for data visualization.
-
-### 2. Using the Report Generation Script
-- Generate a report:
-  ```python
-  from scripts.generate_report import process_and_generate_report
-
-  # For a single CSV file
-  process_and_generate_report(
-      input_path="data/example.csv",
-      report_configs=[
-          {"report": "coverpage", "options": {"title": "Example Report"}},
-          {"report": "summary", "options": {}},
-          {"report": "barcharts", "options": {"chunk_size": 40}},
-          {"report": "basicDataAnalysis", "options": {}}
-      ],
-      general_options={"page_numbering": True}
-  )
-
-  # For a directory containing multiple CSV files
-  process_and_generate_report(
-      input_path="data/",
-      report_configs=[
-          {"report": "coverpage", "options": {"title": "Batch Report"}},
-          {"report": "summary", "options": {}},
-          {"report": "barcharts", "options": {"chunk_size": 40}},
-          {"report": "basicDataAnalysis", "options": {}}
-      ]
-  )
-  ```
-
----
-
-## Dependencies
-
-- `pandas`: For data manipulation and analysis.
-- `xhtml2pdf`: Generates PDFs from HTML content.
-- `matplotlib`: For creating static visualizations.
-- `plotly`: For creating interactive visualizations.
-- `tabulate`: For formatting data summaries as tables.
-- `openpyxl`: For handling `.xlsx` files.
-- `xlrd`: For handling `.xls` files.
-
-Install all dependencies with:
 ```bash
+# Clone the repo
+git clone <repository-url>
+cd data-visualization
+
+# Set up environment
+python -m venv venv
+source venv/bin/activate     # or venv\Scripts\activate on Windows
+
+# Install dependencies
 pip install -r requirements.txt
 ```
 
 ---
 
-## Output Structure
-- All datasets should be stored in the `data` directory.
-- Processed PDF reports will be saved in the `reports` directory.
-- Processed datasets with dropped columns are saved in:
-  ```
-  data/{input_name}_dropped/
-  ```
-- Assets such as logos and stylesheets are located in the `assets` directory.
+## Usage
+
+### 1. Configure `.env`
+
+```ini
+DATA_PATH=data/FILE_PATH              # Path to your input data (can be a file or directory)
+DROP_EMPTY_COLUMNS=True               # Whether to drop columns that are entirely empty (True/False)
+UNIQUE_VALUE_COLUMNS=col1,col2,col3   # Comma-separated list of columns to analyze for unique values (generate_unique_values.py)
+REPORT_CONFIG_PATH=report_config.json # Path to the JSON config file defining which modules to run and their options
+REPORT_TITLE=Title of Report          # Global title used on the report cover page
+CHUNK_SIZE=40                         # Chunk size for bar chart grouping (relevant for the barchart.py module)
+XAXIS_LABEL=Columns                   # X-axis label for generated bar charts (relevant for the barchart.py module)
+YAXIS_LABEL=Unique Values             # Y-axis label for generated bar charts (relevant for the barchart.py module)
+PAGE_NUMBERING=True                   # Whether to include page numbers in the final PDF report
+REPORTS_DIR=reports                   # Output directory where reports are saved
+CSV_DIR=data_csv                      # Intermediate directory where converted CSV files are stored
+REPORT_MODULE_PATH=modules            # Path to the folder containing report generation modules (e.g., summary, coverpage)
+LOGO_PATH=assets/CA_Logo.png          # Path to the logo image used on the cover page
+REPORT_CSS_PATH=assets/styles.css     # Path to the CSS file used to style the report HTML
+
+```
+
+### 2. Configure `report_config.json`
+
+The environment variable for reports are used here
+
+```json
+[
+    {
+        "report": "coverpage",
+        "options": {"title": "${REPORT_TITLE}"}
+    },
+    {
+        "report": "summary",
+        "options": {}
+    },
+    {
+        "report": "barcharts",
+        "options": { "chunk_size": "${CHUNK_SIZE}", "xaxis_label": "${XAXIS_LABEL}", "yaxis_label": "${YAXIS_LABEL}"}
+    },
+    {
+        "report": "basicDataAnalysis",
+        "options": {}
+    }
+]
+```
+
+### 3. Run Reports
+
+```bash
+# Generate main report
+python generate_report.py
+
+# Generate unique values report
+python generate_unique_values_report.py
+```
+
+---
+
+## Output
+
+* PDFs are saved in `reports/`.
+* Converted CSVs are stored in `data_csv/{source}`.
+* Supports nested directories and multi-sheet Excel files.
+
+---
+
+## Extensibility
+
+* Add new modules under `modules/`.
+* Register them via `report_config.json`.
+* Access new options using `.env` or pass directly via the config file.
 
 ---
 
 ## License
 
-This project is licensed under the MIT License. See `LICENSE` for details.
-
----
+MIT License. See `LICENSE` for more information.
