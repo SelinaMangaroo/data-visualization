@@ -21,6 +21,7 @@ data/*          # Ignore all data contents
 !data/.keep     # Except a placeholder file
 data_csv/       # Auto-generated CSV conversions
 reports/        # PDF reports
+logs/           # Log files
 
 # -----------------------
 # Local Environment Configs

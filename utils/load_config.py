@@ -2,6 +2,9 @@ import os
 import json
 import re
 from dotenv import load_dotenv
+from utils.logger import setup_logger
+
+logger = setup_logger()
 load_dotenv(override=True)
 
 def load_report_config(config_path):
@@ -9,6 +12,9 @@ def load_report_config(config_path):
     Loads a JSON report config file and replaces ${ENV_VAR} placeholders with actual .env values.
     Casts numeric strings in options to integers.
     """
+    logger.debug(f"Loaded config from {config_path}")
+    logger.debug(f"Environment: {os.environ.get('DATA_PATH')}")
+
     if not config_path or not os.path.exists(config_path):
         raise FileNotFoundError(f"[ERROR] REPORT_CONFIG_PATH not found: {config_path}")
 

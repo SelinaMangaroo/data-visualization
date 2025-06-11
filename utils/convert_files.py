@@ -4,9 +4,13 @@ import shutil
 import pandas as pd
 import xml.etree.ElementTree as ET
 from collections import OrderedDict
+from utils.logger import setup_logger
+import logging
 from dotenv import load_dotenv
 load_dotenv(override=True)
 
+# logger = setup_logger()
+logger = logging.getLogger("main")
 csv_dir = os.getenv("CSV_DIR", "")
 
 def zap_gremlins(file_path):
@@ -22,6 +26,7 @@ def zap_gremlins(file_path):
     # Overwrite the file with cleaned content
     with open(file_path, 'w', encoding='utf-8') as file:
         file.write(cleaned_content)
+    logger.info(f"Gremlins removed from {file_path}")
 
 def xml_to_csv(xml_directory, csv_dir):
     """
@@ -39,7 +44,7 @@ def xml_to_csv(xml_directory, csv_dir):
         if not os.path.isfile(xml_path):
             continue
 
-        print(f"Processing file: {xml_path}")
+        logger.info(f"Processing XML: {xml_path}")
         zap_gremlins(xml_path)
 
         try:
@@ -52,7 +57,7 @@ def xml_to_csv(xml_directory, csv_dir):
                 rows.append(row)
 
             if not rows:
-                print(f"No data found in {xml_path}")
+                logger.warning(f"No data found in XML: {xml_path}")
                 continue
 
             # Create DataFrame and clean
@@ -64,10 +69,10 @@ def xml_to_csv(xml_directory, csv_dir):
             csv_path = os.path.join(csv_dir, f"{base_name}.csv")
             df.to_csv(csv_path, index=False)
 
-            print(f"Converted {xml_path} to {csv_path}")
+            logger.info(f"Converted {xml_path} -> {csv_path}")
 
         except ET.ParseError as e:
-            print(f"Error parsing {xml_path}: {e}")
+            logger.error(f"XML parse error in {xml_path}: {e}")
 
 def convert_excel_to_csv(excel_directory, csv_dir):
     """
@@ -79,7 +84,7 @@ def convert_excel_to_csv(excel_directory, csv_dir):
         file_path = os.path.join(excel_directory, filename)
         
         if os.path.isfile(file_path) and filename.endswith(('.xls', '.xlsx')):
-            print(f"Processing file: {file_path}")
+            logger.info(f"Processing Excel: {file_path}")
             
             try:
                 # Use openpyxl for .xlsx files and fallback to xlrd for .xls
@@ -90,10 +95,10 @@ def convert_excel_to_csv(excel_directory, csv_dir):
                 output_file = os.path.join(csv_dir, f"{base_filename}.csv")
                 
                 df.to_csv(output_file, index=False)
-                print(f"Converted {file_path} to {output_file}")
+                logger.info(f"Converted {file_path} -> {output_file}")
             
             except Exception as e:
-                print(f"Error processing {file_path}: {e}")
+                logger.error(f"Failed to convert {file_path}: {e}")
 
 def auto_convert_to_csv(path):
     """
@@ -112,6 +117,7 @@ def auto_convert_to_csv(path):
             dest = os.path.join(output_dir, os.path.basename(file_path))
             if file_path != dest:
                 shutil.copy2(file_path, dest)
+                logger.info(f"Copied CSV: {file_path} -> {dest}")
         else:
             raise ValueError(f"Unsupported file format: {file_path}")
 
@@ -119,6 +125,7 @@ def auto_convert_to_csv(path):
         base_name = os.path.splitext(os.path.basename(path))[0]
         out_dir = os.path.join(csv_root, base_name)
         os.makedirs(out_dir, exist_ok=True)
+        logger.info(f"Detected single file input: {path}")
         process_file(path, out_dir)
         return (out_dir if not path.endswith('.csv') else os.path.join(out_dir, os.path.basename(path)), base_name)
 
@@ -126,6 +133,7 @@ def auto_convert_to_csv(path):
         base_name = os.path.basename(os.path.normpath(path))
         out_dir = os.path.join(csv_root, base_name)
         os.makedirs(out_dir, exist_ok=True)
+        logger.info(f"Detected directory input: {path}")
         for file in os.listdir(path):
             full_path = os.path.join(path, file)
             if os.path.isfile(full_path):
@@ -148,4 +156,4 @@ def convert_excel_to_csv_all_sheets(file_path, output_directory):
         safe_sheet = re.sub(r'[^a-zA-Z0-9_-]', '_', sheet_name)
         output_path = os.path.join(output_directory, f"{base_name}_{safe_sheet}.csv")
         df.to_csv(output_path, index=False)
-        print(f"Converted sheet '{sheet_name}' from {file_path} to {output_path}")
+        logger.info(f"Converted sheet '{sheet_name}' from {file_path} -> {output_path}")
