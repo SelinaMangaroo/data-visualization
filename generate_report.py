@@ -13,6 +13,7 @@ def process_and_generate_report(report_configs=None, general_options=None):
     """
     Generates a PDF report from specified input and modular components.
     """
+    general_options = general_options or {}
     logger.info("Report generation started.")
     # Pull from .env if not passed directly
     raw_path = os.getenv("DATA_PATH")
@@ -109,6 +110,7 @@ def process_and_generate_report(report_configs=None, general_options=None):
     logger.info(f"PDF report successfully generated at: {pdf_path}")
 
 if __name__ == "__main__":
+    print("Script is running")
     config_path = os.getenv("REPORT_CONFIG_PATH", "report_config.json")
     logger.info(f"Loading report configuration from: {config_path}")
 
