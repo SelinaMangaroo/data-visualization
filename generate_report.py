@@ -1,6 +1,6 @@
 import os
 import importlib
-from xhtml2pdf import pisa
+from weasyprint import HTML, CSS
 from utils.convert_files import *
 from utils.load_config import load_report_config
 from dotenv import load_dotenv
@@ -20,7 +20,7 @@ def process_and_generate_report(report_configs=None, general_options=None):
     input_path, base_name = auto_convert_to_csv(raw_path)
     logger.info(f"Input path resolved to: {input_path}")
     
-    reports_folder = os.getenv("REPORTS_DIR", "./reports")
+    reports_folder = os.getenv("REPORTS_DIR", "/tmp/reports")
     css_path = os.getenv("REPORT_CSS_PATH", "./assets/styles.css")
     module_path = os.getenv("REPORT_MODULE_PATH", "modules")
 
@@ -40,27 +40,33 @@ def process_and_generate_report(report_configs=None, general_options=None):
 
     pdf_name = f"{base_name}_report.pdf"
     
-    # Inline the CSS for xhtml2pdf
+    # Inline CSS from external stylesheet
     with open(css_path, "r") as css_file:
         inline_styles = f"<style>{css_file.read()}</style>"
+
+    # Add @page rules for page size, margins, and page numbering
+    page_styles = """
+    <style>
+        @page {
+            size: A4;
+            margin: 2cm;
+            @bottom-center {
+                content: "Page " counter(page) " of " counter(pages);
+                font-size: 10pt;
+                color: #666;
+            }
+        }
+        body {
+            font-family: sans-serif;
+        }
+    </style>
+    """
 
     html_report = f"""
     <html>
         <head>
             {inline_styles}
-            <style>
-                @page {{
-                    size: A4;
-                    margin: 2cm;
-                    @frame footer_frame {{
-                        -pdf-frame-content: footer_content;
-                        bottom: 1cm;
-                        left: 1cm;
-                        width: 19cm;
-                        height: 1cm;
-                    }}
-                }}
-            </style>
+            {page_styles}
         </head>
         <body>
     """
@@ -90,22 +96,13 @@ def process_and_generate_report(report_configs=None, general_options=None):
         except Exception as e:
             logger.exception(f"Failed to generate section '{report_type}': {e}")
 
-        html_report += "<div style='page-break-before: always;'></div>"
-
-    # Optional footer
-    if general_options.get("page_numbering", True):
-        html_report += """
-        <div id="footer_content" class="footer">
-            Page <pdf:pageNumber> of <pdf:pageCount>
-        </div>
-        """
+        # html_report += "<div class='page-break'></div>"
 
     html_report += "</body></html>"
 
-    # Write the final PDF
+    # Write the final PDF with WeasyPrint
     pdf_path = os.path.join(reports_folder, pdf_name)
-    with open(pdf_path, "wb") as pdf_file:
-        pisa.CreatePDF(html_report, dest=pdf_file)
+    HTML(string=html_report).write_pdf(pdf_path, stylesheets=[CSS(css_path)])
 
     logger.info(f"PDF report successfully generated at: {pdf_path}")
 

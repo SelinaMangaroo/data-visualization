@@ -1,4 +1,35 @@
 /* --------------------------------------------
+Page Setup & Numbering
+-------------------------------------------- */
+@page {
+    size: A4;
+    margin: 2cm;
+
+    @bottom-center {
+        content: "Page " counter(page) " of " counter(pages);
+        font-size: 10pt;
+        color: #666;
+    }
+}
+
+.page-break {
+    page-break-before: always;
+}
+
+/* Allow long tables to split across pages */
+table {
+    page-break-inside: auto;
+    /* tables can split if too long */
+}
+
+tr,
+td,
+th {
+    page-break-inside: avoid;
+    page-break-after: auto;
+}
+
+/* --------------------------------------------
 Global Styles
 - Applies to the entire document
 -------------------------------------------- */
@@ -11,7 +42,8 @@ body {
 Typography Styles
 - Headings, subheadings, and paragraphs
 -------------------------------------------- */
-.header, h1 {
+.header,
+h1 {
     font-size: 24px;
     text-align: center;
     color: #333;
@@ -24,11 +56,24 @@ Typography Styles
     max-width: 100%;
 }
 
+/* Prevent orphaned headings */
+h1,
+h1.header,
+h2,
+h2.sub-header,
+h3 {
+    page-break-before: avoid;
+    /* don’t start a page with a heading */
+    page-break-after: avoid;
+    /* don’t leave heading stranded */
+}
+
 h2 {
     font-size: 18px;
     color: #555;
     margin-bottom: 10px;
 }
+
 p {
     font-size: 12px;
     margin: 10px 0;
@@ -46,7 +91,6 @@ table {
 }
 
 th,
-
 td {
     border: 1px solid #ddd;
     padding: 3px;
@@ -56,7 +100,6 @@ td {
     overflow-wrap: break-word;
     word-break: break-word;
     max-width: 200px;
-    /* or adjust based on your layout */
 }
 
 th {
@@ -92,7 +135,6 @@ tr:nth-child(even) {
 .summary-table td:first-child,
 .summary-table th:first-child {
     width: 250px;
-    /* Adjust this width as needed */
     word-wrap: break-word;
     white-space: normal;
 }
@@ -101,13 +143,6 @@ tr:nth-child(even) {
 Header and Sub-header Styles
 - For section titles
 -------------------------------------------- */
-/* .header {
-    font-size: 16px;
-    text-align: center;
-    color: #333;
-    margin: 20px 0;
-} */
-
 .sub-header {
     font-size: 14px;
     color: #555;
@@ -120,34 +155,69 @@ Cover Page Styles
 -------------------------------------------- */
 .cover-page-container {
     display: flex;
-    justify-content: center; /* Horizontal centering */
-    align-items: center; /* Vertical centering */
-    height: 800px; /* Fixed height for xhtml2pdf (A4 approximate height) */
-    margin: 0; /* Remove margin */
-    padding: 0; /* Remove padding */
+    justify-content: center;
+    /* Horizontal centering */
+    align-items: center;
+    /* Vertical centering */
+    height: 100vh;
+    /* Full page height for WeasyPrint */
+    margin: 0;
+    padding: 0;
 }
 
 .cover-page {
     text-align: center;
 }
-.cover-page p{
+
+.cover-page p {
     font-size: 20px;
     color: #000;
 }
 
 .cover-page img {
-    max-width: 200px; /* Limits the width */
-    height: auto; /* Scales height proportionally */
-    margin-bottom: 30px; /* Space below the logo */
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 30px;
 }
 
 /* --------------------------------------------
 Footer Styles
-- Footer for page numbers or additional text
+- Optional custom footer (not for page numbers)
 -------------------------------------------- */
 .footer {
     text-align: center;
     font-size: 10px;
     color: #555;
     margin-top: 20px;
+}
+
+/* --------------------------------------------
+Compare Summary Styles
+- Specific styles for the compare summary section
+-------------------------------------------- */
+.value-counts-table {
+    width: 100%;
+    border-collapse: collapse;
+    page-break-inside: auto;
+    /* allow large tables to split */
+}
+
+.value-counts-table th,
+.value-counts-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.value-counts-table th {
+    background-color: #f2f2f2;
+}
+
+/* --------------------------------------------
+Section Wrappers
+-------------------------------------------- */
+.section-block {
+    page-break-inside: avoid;
+    /* keep heading + first rows together */
+    margin-bottom: 20px;
 }

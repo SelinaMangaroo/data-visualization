@@ -1,7 +1,9 @@
 import pandas as pd
 import os
+import logging
 from dotenv import load_dotenv
 
+logger = logging.getLogger("report")
 load_dotenv(override=True)
 
 drop_empty_columns = os.getenv("DROP_EMPTY_COLUMNS", "true").lower() == "true"
@@ -9,13 +11,6 @@ drop_empty_columns = os.getenv("DROP_EMPTY_COLUMNS", "true").lower() == "true"
 def generate_report_section(input_path, options=None, **kwargs):
     """
     Generates the HTML content for a summary page.
-
-    Parameters:
-        input_path (str): Path to the directory containing multiple CSV files.
-        options (dict): Options for customizing the summary generation.
-
-    Returns:
-        str: HTML content for the summary.
     """
     options = options or {}
 
@@ -32,18 +27,15 @@ def generate_report_section(input_path, options=None, **kwargs):
     file_columns = {}
     stats = []
 
-    # Collect data from all files
     for csv_file_path in csv_files:
         base_file_name = os.path.basename(csv_file_path)
 
-        # Load the dataset
         try:
             df = pd.read_csv(csv_file_path, index_col=0, low_memory=False)
         except Exception as e:
-            print(f"Error loading file {csv_file_path}: {e}")
+            logger.exception(f"Error loading file {csv_file_path}: {e}")
             continue
 
-        # Collect columns and compute stats
         total_columns = df.columns.tolist()
         if drop_empty_columns:
             dropped_columns = len(df.columns[df.isnull().all()])
@@ -51,17 +43,12 @@ def generate_report_section(input_path, options=None, **kwargs):
         else:
             dropped_columns = 0
             populated_columns = len(df.columns)
-        number_of_rows = df.shape[0]
 
+        number_of_rows = df.shape[0]
         file_columns[base_file_name] = total_columns
         all_columns.update(total_columns)
 
         stats.append({
-            # "File": base_file_name,
-            # "File": "<br>".join([base_file_name[i:i+20] for i in range(0, len(base_file_name), 20)]),
-            # "File": "<br>".join(
-            #         "_".join([part[i:i+25] for i in range(0, len(part), 25)])
-            #         for part in base_file_name.split("_")),
             "File": base_file_name.replace("_", "_<br>"),
             "Total Columns": len(total_columns),
             "Dropped Columns": dropped_columns,
@@ -69,22 +56,23 @@ def generate_report_section(input_path, options=None, **kwargs):
             "Rows": number_of_rows,
         })
 
-    # Generate HTML content
+    # Build HTML
     html_content = f"""
-    <h1 class="header">Summary of Processed Files</h1>
-    <p><strong>Empty Column Dropping:</strong> {"Enabled" if drop_empty_columns else "Disabled"}</p>
-    <h2 class="sub-header">Summary Statistics:</h2>
-    <table class="summary-table">
-        <thead>
-            <tr>
-                <th style="width: 250px;">File</th>
-                <th>Total Columns</th>
-                <th>Dropped Columns</th>
-                <th>Populated Columns</th>
-                <th>Number of Rows</th>
-            </tr>
-        </thead>
-        <tbody>
+    <div class="section-block">
+        <h1 class="header">Summary of Processed Files</h1>
+        <p><strong>Empty Column Dropping:</strong> {"Enabled" if drop_empty_columns else "Disabled"}</p>
+        <h2 class="sub-header">Summary Statistics:</h2>
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th style="width: 250px;">File</th>
+                    <th>Total Columns</th>
+                    <th>Dropped Columns</th>
+                    <th>Populated Columns</th>
+                    <th>Number of Rows</th>
+                </tr>
+            </thead>
+            <tbody>
     """
 
     for stat in stats:
@@ -112,19 +100,19 @@ def generate_report_section(input_path, options=None, **kwargs):
         <tbody>
     """
 
-            # <td>{', '.join(files_with_column)}</td>
-            # <td>{', '.join(file.replace('_', '_<br>') for file in files_with_column)}</td>
     for column in sorted(all_columns):
         files_with_column = [file for file, cols in file_columns.items() if column in cols]
         html_content += f"""
         <tr>
             <td>{column}</td>
-            <td>{'<br>'.join([', '.join(files_with_column)[i:i+40] for i in range(0, len(', '.join(files_with_column)), 40)])}</td>
+            <td>{"<br>".join(files_with_column)}</td>
         </tr>
         """
 
     html_content += """
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    </div>
     """
-    return html_content
+
+    return html_content + "<div class='page-break'></div>"

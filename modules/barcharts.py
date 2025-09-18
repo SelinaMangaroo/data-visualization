@@ -3,17 +3,13 @@ import plotly.express as px
 import pandas as pd
 from io import BytesIO
 import base64
+import logging
+
+logger = logging.getLogger("report")
 
 def generate_report_section(input_path, options=None, **kwargs):
     """
     Generates bar charts for one or more datasets and returns HTML content for embedding in a report.
-
-    Parameters:
-        input_path (str): Path to the CSV file or directory containing CSV files.
-        options (dict): Options for customizing the bar charts.
-
-    Returns:
-        str: HTML content with embedded bar charts.
     """
     options = options or {}
     chunk_size = options.get("chunk_size", 40)
@@ -31,10 +27,8 @@ def generate_report_section(input_path, options=None, **kwargs):
 
     charts_html = ""
 
-    # Process each CSV file
     for csv_file_path in csv_files:
         try:
-            # Load CSV data
             df = pd.read_csv(csv_file_path, index_col=0, low_memory=False)
 
             # Prepare data for bar chart
@@ -46,12 +40,11 @@ def generate_report_section(input_path, options=None, **kwargs):
                 "Unique Count": [len(values) for values in unique_values.values()],
             }).sort_values(by="Unique Count", ascending=False)
 
-            # Generate bar charts
+            # Generate bar charts in chunks
             for i in range(0, len(chart_df), chunk_size):
                 chunk = chart_df.iloc[i:i + chunk_size]
                 part_number = (i // chunk_size) + 1
 
-                # Generate the bar chart
                 fig = px.bar(
                     chunk,
                     x="Column",
@@ -68,21 +61,22 @@ def generate_report_section(input_path, options=None, **kwargs):
                     yaxis_title=yaxis_label,
                 )
 
-                # Save the chart image to memory as Base64
+                # Export chart as PNG → Base64
                 buffer = BytesIO()
                 fig.write_image(buffer, format="png")
                 buffer.seek(0)
                 image_base64 = base64.b64encode(buffer.read()).decode("utf-8")
                 buffer.close()
 
-                # Append the chart to the charts_html string
                 charts_html += f"""
-                    <h2 class="sub-header">Bar Chart (Part {part_number})</h2>
-                    <img src="data:image/png;base64,{image_base64}" alt="Bar Chart Part {part_number}">
+                    <div class="section-block">
+                        <h2 class="sub-header">Bar Chart (Part {part_number})</h2>
+                        <img src="data:image/png;base64,{image_base64}" alt="Bar Chart Part {part_number}">
+                    </div>
                 """
 
         except Exception as e:
-            print(f"Error processing file {csv_file_path}: {e}")
+            logger.exception(f"Error processing file {csv_file_path}: {e}")
             continue
 
-    return charts_html
+    return charts_html + "<div class='page-break'></div>"

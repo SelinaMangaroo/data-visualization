@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 from dotenv import load_dotenv
-from xhtml2pdf import pisa
+from weasyprint import HTML, CSS
 from utils.convert_files import auto_convert_to_csv 
 from utils.logger import setup_logger
 
@@ -13,7 +13,6 @@ def generate_unique_values_report():
     Generates a PDF containing unique values for specified columns in CSV file(s).
     Automatically converts .xlsx/.xml files if needed. Reads paths from .env if not provided.
     """
-    
     logger.info("Starting unique values report generation.")
     
     # Load from .env if not passed explicitly
@@ -43,12 +42,7 @@ def generate_unique_values_report():
         os.path.join(converted_path, f) for f in os.listdir(converted_path) if f.endswith(".csv")
     ]
 
-    # base_name = os.path.splitext(os.path.basename(converted_path.rstrip("/")))[0]
     output_pdf = os.path.join(reports_dir, f"{base_name}_unique_vals.pdf")
-
-    # Read CSS
-    with open(css_path, "r") as f:
-        inline_css = f"<style>{f.read()}</style>"
 
     html_sections = ""
     for csv_path in csv_files:
@@ -88,11 +82,11 @@ def generate_unique_values_report():
         <h1 class="header">File: {os.path.basename(csv_path)}</h1>
         {content_html}
         """
-        html_sections += file_section + "<div style='page-break-before: always;'></div>"
+        html_sections += file_section + "<div class='page-break'></div>"
 
     html_report = f"""
     <html>
-        <head>{inline_css}</head>
+        <head><link rel="stylesheet" href="{css_path}"></head>
         <body>
             <h1 class="header">Unique Values Report</h1>
             {html_sections}
@@ -100,8 +94,8 @@ def generate_unique_values_report():
     </html>
     """
 
-    with open(output_pdf, "wb") as pdf_file:
-        pisa.CreatePDF(html_report, dest=pdf_file)
+    # Generate PDF with WeasyPrint
+    HTML(string=html_report).write_pdf(output_pdf, stylesheets=[CSS(css_path)])
 
     logger.info(f"Unique values PDF generated: {output_pdf}")
 
